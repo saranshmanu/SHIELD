@@ -9,18 +9,14 @@
 import UIKit
 import Lottie
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    @IBOutlet weak var upcomingMeetingsCollectionView: UICollectionView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    @IBOutlet weak var dateView: UIView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 150
-//    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = messagesTableView.dequeueReusableCell(withIdentifier: "message", for: indexPath as IndexPath) as! messageTableViewCell
@@ -44,15 +40,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        animationView?.play()
         messagesTableView.delegate = self
         messagesTableView.dataSource = self
+        upcomingMeetingsCollectionView.delegate = self
+        upcomingMeetingsCollectionView.dataSource = self
         
-        dateView.layer.masksToBounds = false
-        dateView.layer.shadowColor = UIColor.black.cgColor
-        dateView.layer.shadowOpacity = 0.5
-        dateView.layer.shadowOffset = CGSize(width: -1, height: 1)
-        dateView.layer.shadowRadius = 10
-        dateView.layer.shadowPath = UIBezierPath(rect: dateView.bounds).cgPath
-        dateView.layer.shouldRasterize = true
-        dateView.layer.rasterizationScale = UIScreen.main.scale
+//        dateView.layer.masksToBounds = false
+//        dateView.layer.shadowColor = UIColor.black.cgColor
+//        dateView.layer.shadowOpacity = 0.5
+//        dateView.layer.shadowOffset = CGSize(width: -1, height: 1)
+//        dateView.layer.shadowRadius = 10
+//        dateView.layer.shadowPath = UIBezierPath(rect: dateView.bounds).cgPath
+//        dateView.layer.shouldRasterize = true
+//        dateView.layer.rasterizationScale = UIScreen.main.scale
         
     }
 
@@ -60,6 +58,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @available(iOS 6.0, *)
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    @available(iOS 6.0, *)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "upcomingMeetings", for: indexPath) as! upcomingMeetingsCollectionViewCell
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+    }
+    
 
 
 }

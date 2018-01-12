@@ -17,14 +17,17 @@
 		955DBD971FC43D1700D191D9 /* SHIELDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955DBD961FC43D1700D191D9 /* SHIELDTests.swift */; };
 		955DBDA21FC43D1700D191D9 /* SHIELDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955DBDA11FC43D1700D191D9 /* SHIELDUITests.swift */; };
 		955DBDB41FC486EB00D191D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 955DBDB31FC486EB00D191D9 /* GoogleService-Info.plist */; };
-		955DBDB61FC4871800D191D9 /* preloader.json in Resources */ = {isa = PBXBuildFile; fileRef = 955DBDB51FC4871800D191D9 /* preloader.json */; };
 		9570FFBB200292D400DF4A07 /* messageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9570FFBA200292D400DF4A07 /* messageTableViewCell.swift */; };
 		9570FFBD20029E7B00DF4A07 /* MembersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9570FFBC20029E7B00DF4A07 /* MembersTableViewCell.swift */; };
 		9570FFBF20029E8E00DF4A07 /* MembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9570FFBE20029E8E00DF4A07 /* MembersViewController.swift */; };
-		9570FFC12002A48300DF4A07 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 9570FFC02002A48300DF4A07 /* data.json */; };
 		9570FFC52002B38D00DF4A07 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9570FFC42002B38D00DF4A07 /* SWRevealViewController.m */; };
 		9570FFC72003EA1B00DF4A07 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9570FFC62003EA1B00DF4A07 /* ProfileViewController.swift */; };
 		9570FFCA2003EEF100DF4A07 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9570FFC92003EEF100DF4A07 /* ProfileTableViewCell.swift */; };
+		95BFD97B2008EF1C00F65439 /* upcomingMeetingsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BFD97A2008EF1C00F65439 /* upcomingMeetingsCollectionViewCell.swift */; };
+		95BFD97D2008F56B00F65439 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 95BFD97C2008F56B00F65439 /* data.json */; };
+		95BFD97F2008F80B00F65439 /* DepartmentMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BFD97E2008F80B00F65439 /* DepartmentMessagesViewController.swift */; };
+		95BFD9812008F95D00F65439 /* departmentMessagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BFD9802008F95D00F65439 /* departmentMessagesTableViewCell.swift */; };
+		95BFD9832008FBFD00F65439 /* RippleEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BFD9822008FBFD00F65439 /* RippleEffect.swift */; };
 		C3B014DB6CECB44CCF41E6BA /* Pods_SHIELDUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF14DC977C5A8A86ACC5E142 /* Pods_SHIELDUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,16 +69,19 @@
 		955DBDA11FC43D1700D191D9 /* SHIELDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHIELDUITests.swift; sourceTree = "<group>"; };
 		955DBDA31FC43D1700D191D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		955DBDB31FC486EB00D191D9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		955DBDB51FC4871800D191D9 /* preloader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = preloader.json; sourceTree = "<group>"; };
 		9570FFBA200292D400DF4A07 /* messageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = messageTableViewCell.swift; sourceTree = "<group>"; };
 		9570FFBC20029E7B00DF4A07 /* MembersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersTableViewCell.swift; sourceTree = "<group>"; };
 		9570FFBE20029E8E00DF4A07 /* MembersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersViewController.swift; sourceTree = "<group>"; };
-		9570FFC02002A48300DF4A07 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = data.json; path = ../../../../../../../Downloads/preloader_v/data.json; sourceTree = "<group>"; };
 		9570FFC22002B38C00DF4A07 /* SHIELD-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SHIELD-Bridging-Header.h"; sourceTree = "<group>"; };
 		9570FFC32002B38D00DF4A07 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		9570FFC42002B38D00DF4A07 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		9570FFC62003EA1B00DF4A07 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9570FFC92003EEF100DF4A07 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		95BFD97A2008EF1C00F65439 /* upcomingMeetingsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = upcomingMeetingsCollectionViewCell.swift; sourceTree = "<group>"; };
+		95BFD97C2008F56B00F65439 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		95BFD97E2008F80B00F65439 /* DepartmentMessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentMessagesViewController.swift; sourceTree = "<group>"; };
+		95BFD9802008F95D00F65439 /* departmentMessagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = departmentMessagesTableViewCell.swift; sourceTree = "<group>"; };
+		95BFD9822008FBFD00F65439 /* RippleEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RippleEffect.swift; sourceTree = "<group>"; };
 		A5471DD7F58203B9086E81E6 /* Pods_SHIELD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SHIELD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABFCE6677E4CC759BA6C6C82 /* Pods-SHIELDTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHIELDTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SHIELDTests/Pods-SHIELDTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AF14DC977C5A8A86ACC5E142 /* Pods_SHIELDUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SHIELDUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,17 +169,20 @@
 				9570FFC22002B38C00DF4A07 /* SHIELD-Bridging-Header.h */,
 				9570FFC32002B38D00DF4A07 /* SWRevealViewController.h */,
 				9570FFC42002B38D00DF4A07 /* SWRevealViewController.m */,
-				955DBDB51FC4871800D191D9 /* preloader.json */,
-				9570FFC02002A48300DF4A07 /* data.json */,
 				955DBDB31FC486EB00D191D9 /* GoogleService-Info.plist */,
 				955DBD881FC43D1700D191D9 /* Assets.xcassets */,
 				955DBD8A1FC43D1700D191D9 /* LaunchScreen.storyboard */,
 				955DBD8D1FC43D1700D191D9 /* Info.plist */,
+				95BFD97C2008F56B00F65439 /* data.json */,
 				9570FFBA200292D400DF4A07 /* messageTableViewCell.swift */,
 				9570FFBC20029E7B00DF4A07 /* MembersTableViewCell.swift */,
+				95BFD9822008FBFD00F65439 /* RippleEffect.swift */,
 				9570FFBE20029E8E00DF4A07 /* MembersViewController.swift */,
 				9570FFC62003EA1B00DF4A07 /* ProfileViewController.swift */,
 				9570FFC92003EEF100DF4A07 /* ProfileTableViewCell.swift */,
+				95BFD97A2008EF1C00F65439 /* upcomingMeetingsCollectionViewCell.swift */,
+				95BFD97E2008F80B00F65439 /* DepartmentMessagesViewController.swift */,
+				95BFD9802008F95D00F65439 /* departmentMessagesTableViewCell.swift */,
 			);
 			path = SHIELD;
 			sourceTree = "<group>";
@@ -317,10 +326,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				955DBD8C1FC43D1700D191D9 /* LaunchScreen.storyboard in Resources */,
-				9570FFC12002A48300DF4A07 /* data.json in Resources */,
 				955DBDB41FC486EB00D191D9 /* GoogleService-Info.plist in Resources */,
-				955DBDB61FC4871800D191D9 /* preloader.json in Resources */,
 				955DBD891FC43D1700D191D9 /* Assets.xcassets in Resources */,
+				95BFD97D2008F56B00F65439 /* data.json in Resources */,
 				955DBD871FC43D1700D191D9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -502,12 +510,16 @@
 			files = (
 				9570FFBB200292D400DF4A07 /* messageTableViewCell.swift in Sources */,
 				9570FFCA2003EEF100DF4A07 /* ProfileTableViewCell.swift in Sources */,
+				95BFD97F2008F80B00F65439 /* DepartmentMessagesViewController.swift in Sources */,
 				955DBD841FC43D1700D191D9 /* ViewController.swift in Sources */,
 				9570FFBF20029E8E00DF4A07 /* MembersViewController.swift in Sources */,
 				955DBD821FC43D1700D191D9 /* AppDelegate.swift in Sources */,
+				95BFD9832008FBFD00F65439 /* RippleEffect.swift in Sources */,
+				95BFD97B2008EF1C00F65439 /* upcomingMeetingsCollectionViewCell.swift in Sources */,
 				9570FFC72003EA1B00DF4A07 /* ProfileViewController.swift in Sources */,
 				9570FFBD20029E7B00DF4A07 /* MembersTableViewCell.swift in Sources */,
 				9570FFC52002B38D00DF4A07 /* SWRevealViewController.m in Sources */,
+				95BFD9812008F95D00F65439 /* departmentMessagesTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

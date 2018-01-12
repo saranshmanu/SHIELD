@@ -21,11 +21,21 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         return cell
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = .default
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = .lightContent
+    }
+    
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var workTableView: UITableView!
     @IBOutlet weak var infoView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.shared.statusBarStyle = .lightContent
         // Do any additional setup after loading the view.
         workTableView.delegate = self
         workTableView.dataSource = self
