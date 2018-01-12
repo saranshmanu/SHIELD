@@ -1,0 +1,6 @@
+framework module Pods_SHIELDTests {
+  umbrella header "Pods-SHIELDTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

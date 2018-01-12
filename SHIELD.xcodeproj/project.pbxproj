@@ -23,6 +23,8 @@
 		9570FFBF20029E8E00DF4A07 /* MembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9570FFBE20029E8E00DF4A07 /* MembersViewController.swift */; };
 		9570FFC12002A48300DF4A07 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 9570FFC02002A48300DF4A07 /* data.json */; };
 		9570FFC52002B38D00DF4A07 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9570FFC42002B38D00DF4A07 /* SWRevealViewController.m */; };
+		9570FFC72003EA1B00DF4A07 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9570FFC62003EA1B00DF4A07 /* ProfileViewController.swift */; };
+		9570FFCA2003EEF100DF4A07 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9570FFC92003EEF100DF4A07 /* ProfileTableViewCell.swift */; };
 		C3B014DB6CECB44CCF41E6BA /* Pods_SHIELDUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF14DC977C5A8A86ACC5E142 /* Pods_SHIELDUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +74,8 @@
 		9570FFC22002B38C00DF4A07 /* SHIELD-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SHIELD-Bridging-Header.h"; sourceTree = "<group>"; };
 		9570FFC32002B38D00DF4A07 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		9570FFC42002B38D00DF4A07 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		9570FFC62003EA1B00DF4A07 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		9570FFC92003EEF100DF4A07 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		A5471DD7F58203B9086E81E6 /* Pods_SHIELD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SHIELD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABFCE6677E4CC759BA6C6C82 /* Pods-SHIELDTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHIELDTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SHIELDTests/Pods-SHIELDTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AF14DC977C5A8A86ACC5E142 /* Pods_SHIELDUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SHIELDUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,6 +172,8 @@
 				9570FFBA200292D400DF4A07 /* messageTableViewCell.swift */,
 				9570FFBC20029E7B00DF4A07 /* MembersTableViewCell.swift */,
 				9570FFBE20029E8E00DF4A07 /* MembersViewController.swift */,
+				9570FFC62003EA1B00DF4A07 /* ProfileViewController.swift */,
+				9570FFC92003EEF100DF4A07 /* ProfileTableViewCell.swift */,
 			);
 			path = SHIELD;
 			sourceTree = "<group>";
@@ -495,9 +501,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9570FFBB200292D400DF4A07 /* messageTableViewCell.swift in Sources */,
+				9570FFCA2003EEF100DF4A07 /* ProfileTableViewCell.swift in Sources */,
 				955DBD841FC43D1700D191D9 /* ViewController.swift in Sources */,
 				9570FFBF20029E8E00DF4A07 /* MembersViewController.swift in Sources */,
 				955DBD821FC43D1700D191D9 /* AppDelegate.swift in Sources */,
+				9570FFC72003EA1B00DF4A07 /* ProfileViewController.swift in Sources */,
 				9570FFBD20029E7B00DF4A07 /* MembersTableViewCell.swift in Sources */,
 				9570FFC52002B38D00DF4A07 /* SWRevealViewController.m in Sources */,
 			);

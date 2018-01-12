@@ -18,9 +18,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return 10
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 150
+//    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = messagesTableView.dequeueReusableCell(withIdentifier: "message", for: indexPath as IndexPath) as! messageTableViewCell
@@ -44,6 +44,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        animationView?.play()
         messagesTableView.delegate = self
         messagesTableView.dataSource = self
+        
+        dateView.layer.masksToBounds = false
+        dateView.layer.shadowColor = UIColor.black.cgColor
+        dateView.layer.shadowOpacity = 0.5
+        dateView.layer.shadowOffset = CGSize(width: -1, height: 1)
+        dateView.layer.shadowRadius = 10
+        dateView.layer.shadowPath = UIBezierPath(rect: dateView.bounds).cgPath
+        dateView.layer.shouldRasterize = true
+        dateView.layer.rasterizationScale = UIScreen.main.scale
+        
     }
 
     override func didReceiveMemoryWarning() {
