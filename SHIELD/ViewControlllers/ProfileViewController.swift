@@ -16,35 +16,22 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = workTableView.dequeueReusableCell(withIdentifier: "work", for: indexPath as IndexPath) as! ProfileTableViewCell
         if check[indexPath.row] == 1{
-            cell.status.backgroundColor = UIColor.white
+            cell.status.backgroundColor = UIColor.clear
         }
         return cell
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        UIApplication.shared.statusBarStyle = .default
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        workTableView.deselectRow(at: indexPath, animated: true)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        UIApplication.shared.statusBarStyle = .lightContent
-    }
-    
-    @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var workTableView: UITableView!
-    @IBOutlet weak var infoView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.shared.statusBarStyle = .lightContent
-        // Do any additional setup after loading the view.
         workTableView.delegate = self
         workTableView.dataSource = self
-        if self.revealViewController() != nil {
-            menuButton.target = self.revealViewController()
-            menuButton.action = "revealToggle:"
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
-        dropShadow()
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,16 +39,16 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         // Dispose of any resources that can be recreated.
     }
     
-    func dropShadow() {
-        infoView.layer.masksToBounds = false
-        infoView.layer.shadowColor = UIColor.black.cgColor
-        infoView.layer.shadowOpacity = 0.7
-        infoView.layer.shadowOffset = CGSize(width: -1, height: 1)
-        infoView.layer.shadowRadius = 10
-        infoView.layer.shadowPath = UIBezierPath(rect: infoView.bounds).cgPath
-        infoView.layer.shouldRasterize = true
-        infoView.layer.rasterizationScale = UIScreen.main.scale
-    }
+//    func dropShadow() {
+//        infoView.layer.masksToBounds = false
+//        infoView.layer.shadowColor = UIColor.black.cgColor
+//        infoView.layer.shadowOpacity = 0.7
+//        infoView.layer.shadowOffset = CGSize(width: -1, height: 1)
+//        infoView.layer.shadowRadius = 10
+//        infoView.layer.shadowPath = UIBezierPath(rect: infoView.bounds).cgPath
+//        infoView.layer.shouldRasterize = true
+//        infoView.layer.rasterizationScale = UIScreen.main.scale
+//    }
     
     /*
     // MARK: - Navigation

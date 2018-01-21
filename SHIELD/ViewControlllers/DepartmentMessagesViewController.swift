@@ -44,7 +44,7 @@ class DepartmentMessagesViewController: UIViewController, UITableViewDelegate, U
     
     override func viewDidDisappear(_ animated: Bool) {
         navigationController?.navigationBar.tintColor = .black
-        UIApplication.shared.statusBarStyle = .default
+        UIApplication.shared.statusBarStyle = .lightContent
     }
 
     /*
