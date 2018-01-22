@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E388834F78CD140B5570E700B1BF5D1D"
+               BlueprintIdentifier = "4E3868D9984992FCCAB5B5AC038ABDC8"
                BuildableName = "Pods_SHIELD.framework"
                BlueprintName = "Pods-SHIELD"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -26,6 +26,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -36,6 +37,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -45,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E388834F78CD140B5570E700B1BF5D1D"
+            BlueprintIdentifier = "4E3868D9984992FCCAB5B5AC038ABDC8"
             BuildableName = "Pods_SHIELD.framework"
             BlueprintName = "Pods-SHIELD"
             ReferencedContainer = "container:Pods.xcodeproj">

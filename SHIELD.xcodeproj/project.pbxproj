@@ -15,16 +15,22 @@
 		955DBD8C1FC43D1700D191D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 955DBD8A1FC43D1700D191D9 /* LaunchScreen.storyboard */; };
 		955DBD971FC43D1700D191D9 /* SHIELDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955DBD961FC43D1700D191D9 /* SHIELDTests.swift */; };
 		955DBDA21FC43D1700D191D9 /* SHIELDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955DBDA11FC43D1700D191D9 /* SHIELDUITests.swift */; };
-		955DBDB41FC486EB00D191D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 955DBDB31FC486EB00D191D9 /* GoogleService-Info.plist */; };
 		9570FFBD20029E7B00DF4A07 /* MembersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9570FFBC20029E7B00DF4A07 /* MembersTableViewCell.swift */; };
 		9570FFBF20029E8E00DF4A07 /* MembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9570FFBE20029E8E00DF4A07 /* MembersViewController.swift */; };
-		9570FFC72003EA1B00DF4A07 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9570FFC62003EA1B00DF4A07 /* ProfileViewController.swift */; };
-		9570FFCA2003EEF100DF4A07 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9570FFC92003EEF100DF4A07 /* ProfileTableViewCell.swift */; };
+		9570FFC72003EA1B00DF4A07 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9570FFC62003EA1B00DF4A07 /* TaskViewController.swift */; };
+		9570FFCA2003EEF100DF4A07 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9570FFC92003EEF100DF4A07 /* TaskTableViewCell.swift */; };
 		95BFD97D2008F56B00F65439 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 95BFD97C2008F56B00F65439 /* data.json */; };
-		95BFD97F2008F80B00F65439 /* DepartmentMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BFD97E2008F80B00F65439 /* DepartmentMessagesViewController.swift */; };
-		95BFD9812008F95D00F65439 /* departmentMessagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BFD9802008F95D00F65439 /* departmentMessagesTableViewCell.swift */; };
+		95BFD97F2008F80B00F65439 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BFD97E2008F80B00F65439 /* MessagesViewController.swift */; };
+		95BFD9812008F95D00F65439 /* MessagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BFD9802008F95D00F65439 /* MessagesTableViewCell.swift */; };
 		95BFD9832008FBFD00F65439 /* RippleEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BFD9822008FBFD00F65439 /* RippleEffect.swift */; };
 		95E350B520151DDC0090AABE /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E350B420151DDC0090AABE /* HomeTabBarController.swift */; };
+		95E350B82015DEAE0090AABE /* DepartmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E350B72015DEAE0090AABE /* DepartmentViewController.swift */; };
+		95E350BA2015DEEC0090AABE /* DepartmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E350B92015DEEC0090AABE /* DepartmentTableViewCell.swift */; };
+		95E350BC2015E2350090AABE /* MessageCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E350BB2015E2350090AABE /* MessageCreationViewController.swift */; };
+		95E350BE2015E2430090AABE /* TaskCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E350BD2015E2430090AABE /* TaskCreationViewController.swift */; };
+		95E350C02015E4C50090AABE /* DepartmentInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E350BF2015E4C50090AABE /* DepartmentInformationViewController.swift */; };
+		95E350C22015F7890090AABE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95E350C12015F7890090AABE /* GoogleService-Info.plist */; };
+		95E350C42015F7D60090AABE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E350C32015F7D60090AABE /* Constants.swift */; };
 		C3B014DB6CECB44CCF41E6BA /* Pods_SHIELDUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF14DC977C5A8A86ACC5E142 /* Pods_SHIELDUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,16 +70,22 @@
 		955DBD9D1FC43D1700D191D9 /* SHIELDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SHIELDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		955DBDA11FC43D1700D191D9 /* SHIELDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHIELDUITests.swift; sourceTree = "<group>"; };
 		955DBDA31FC43D1700D191D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		955DBDB31FC486EB00D191D9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9570FFBC20029E7B00DF4A07 /* MembersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersTableViewCell.swift; sourceTree = "<group>"; };
 		9570FFBE20029E8E00DF4A07 /* MembersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersViewController.swift; sourceTree = "<group>"; };
-		9570FFC62003EA1B00DF4A07 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		9570FFC92003EEF100DF4A07 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		9570FFC62003EA1B00DF4A07 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
+		9570FFC92003EEF100DF4A07 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		95BFD97C2008F56B00F65439 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
-		95BFD97E2008F80B00F65439 /* DepartmentMessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentMessagesViewController.swift; sourceTree = "<group>"; };
-		95BFD9802008F95D00F65439 /* departmentMessagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = departmentMessagesTableViewCell.swift; sourceTree = "<group>"; };
+		95BFD97E2008F80B00F65439 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		95BFD9802008F95D00F65439 /* MessagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewCell.swift; sourceTree = "<group>"; };
 		95BFD9822008FBFD00F65439 /* RippleEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RippleEffect.swift; sourceTree = "<group>"; };
 		95E350B420151DDC0090AABE /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
+		95E350B72015DEAE0090AABE /* DepartmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentViewController.swift; sourceTree = "<group>"; };
+		95E350B92015DEEC0090AABE /* DepartmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentTableViewCell.swift; sourceTree = "<group>"; };
+		95E350BB2015E2350090AABE /* MessageCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCreationViewController.swift; sourceTree = "<group>"; };
+		95E350BD2015E2430090AABE /* TaskCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCreationViewController.swift; sourceTree = "<group>"; };
+		95E350BF2015E4C50090AABE /* DepartmentInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentInformationViewController.swift; sourceTree = "<group>"; };
+		95E350C12015F7890090AABE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "SHIELD/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		95E350C32015F7D60090AABE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A5471DD7F58203B9086E81E6 /* Pods_SHIELD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SHIELD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABFCE6677E4CC759BA6C6C82 /* Pods-SHIELDTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHIELDTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SHIELDTests/Pods-SHIELDTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AF14DC977C5A8A86ACC5E142 /* Pods_SHIELDUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SHIELDUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,12 +169,12 @@
 			children = (
 				95E350B3201506DF0090AABE /* Helpers */,
 				955DBD851FC43D1700D191D9 /* Main.storyboard */,
-				955DBDB31FC486EB00D191D9 /* GoogleService-Info.plist */,
 				955DBD8D1FC43D1700D191D9 /* Info.plist */,
 				955DBD881FC43D1700D191D9 /* Assets.xcassets */,
 				955DBD8A1FC43D1700D191D9 /* LaunchScreen.storyboard */,
 				95BFD97C2008F56B00F65439 /* data.json */,
 				95E350B12015069B0090AABE /* ViewControlllers */,
+				95E350C32015F7D60090AABE /* Constants.swift */,
 			);
 			path = SHIELD;
 			sourceTree = "<group>";
@@ -188,10 +200,13 @@
 		95E350B12015069B0090AABE /* ViewControlllers */ = {
 			isa = PBXGroup;
 			children = (
-				95E350B420151DDC0090AABE /* HomeTabBarController.swift */,
-				9570FFC62003EA1B00DF4A07 /* ProfileViewController.swift */,
-				95BFD97E2008F80B00F65439 /* DepartmentMessagesViewController.swift */,
 				9570FFBE20029E8E00DF4A07 /* MembersViewController.swift */,
+				9570FFC62003EA1B00DF4A07 /* TaskViewController.swift */,
+				95E350BD2015E2430090AABE /* TaskCreationViewController.swift */,
+				95BFD97E2008F80B00F65439 /* MessagesViewController.swift */,
+				95E350BB2015E2350090AABE /* MessageCreationViewController.swift */,
+				95E350B72015DEAE0090AABE /* DepartmentViewController.swift */,
+				95E350BF2015E4C50090AABE /* DepartmentInformationViewController.swift */,
 			);
 			path = ViewControlllers;
 			sourceTree = "<group>";
@@ -199,11 +214,14 @@
 		95E350B3201506DF0090AABE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				95E350B420151DDC0090AABE /* HomeTabBarController.swift */,
 				9570FFBC20029E7B00DF4A07 /* MembersTableViewCell.swift */,
-				9570FFC92003EEF100DF4A07 /* ProfileTableViewCell.swift */,
-				95BFD9802008F95D00F65439 /* departmentMessagesTableViewCell.swift */,
-				95BFD9822008FBFD00F65439 /* RippleEffect.swift */,
+				9570FFC92003EEF100DF4A07 /* TaskTableViewCell.swift */,
+				95BFD9802008F95D00F65439 /* MessagesTableViewCell.swift */,
+				95E350C12015F7890090AABE /* GoogleService-Info.plist */,
+				95E350B92015DEEC0090AABE /* DepartmentTableViewCell.swift */,
 				955DBD811FC43D1700D191D9 /* AppDelegate.swift */,
+				95BFD9822008FBFD00F65439 /* RippleEffect.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -329,8 +347,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				955DBD8C1FC43D1700D191D9 /* LaunchScreen.storyboard in Resources */,
-				955DBDB41FC486EB00D191D9 /* GoogleService-Info.plist in Resources */,
 				955DBD891FC43D1700D191D9 /* Assets.xcassets in Resources */,
+				95E350C22015F7890090AABE /* GoogleService-Info.plist in Resources */,
 				95BFD97D2008F56B00F65439 /* data.json in Resources */,
 				955DBD871FC43D1700D191D9 /* Main.storyboard in Resources */,
 			);
@@ -474,12 +492,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SHIELD/Pods-SHIELD-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
@@ -511,15 +531,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9570FFCA2003EEF100DF4A07 /* ProfileTableViewCell.swift in Sources */,
+				95E350BE2015E2430090AABE /* TaskCreationViewController.swift in Sources */,
+				95E350C02015E4C50090AABE /* DepartmentInformationViewController.swift in Sources */,
+				95E350B82015DEAE0090AABE /* DepartmentViewController.swift in Sources */,
+				9570FFCA2003EEF100DF4A07 /* TaskTableViewCell.swift in Sources */,
 				95E350B520151DDC0090AABE /* HomeTabBarController.swift in Sources */,
-				95BFD97F2008F80B00F65439 /* DepartmentMessagesViewController.swift in Sources */,
+				95BFD97F2008F80B00F65439 /* MessagesViewController.swift in Sources */,
 				9570FFBF20029E8E00DF4A07 /* MembersViewController.swift in Sources */,
 				955DBD821FC43D1700D191D9 /* AppDelegate.swift in Sources */,
 				95BFD9832008FBFD00F65439 /* RippleEffect.swift in Sources */,
-				9570FFC72003EA1B00DF4A07 /* ProfileViewController.swift in Sources */,
+				9570FFC72003EA1B00DF4A07 /* TaskViewController.swift in Sources */,
+				95E350C42015F7D60090AABE /* Constants.swift in Sources */,
+				95E350BA2015DEEC0090AABE /* DepartmentTableViewCell.swift in Sources */,
 				9570FFBD20029E7B00DF4A07 /* MembersTableViewCell.swift in Sources */,
-				95BFD9812008F95D00F65439 /* departmentMessagesTableViewCell.swift in Sources */,
+				95BFD9812008F95D00F65439 /* MessagesTableViewCell.swift in Sources */,
+				95E350BC2015E2350090AABE /* MessageCreationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

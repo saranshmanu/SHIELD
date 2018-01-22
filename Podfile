@@ -10,6 +10,7 @@ pod 'Firebase'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
 pod 'lottie-ios'
+pod 'Eureka'
   target 'SHIELDTests' do
     inherit! :search_paths
     # Pods for testing

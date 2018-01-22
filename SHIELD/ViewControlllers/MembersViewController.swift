@@ -52,7 +52,6 @@ class MembersViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.shared.statusBarStyle = .lightContent
-        
         membersTableView.delegate = self
         membersTableView.dataSource = self
 //        let animationView = LOTAnimationView(name: "data")
