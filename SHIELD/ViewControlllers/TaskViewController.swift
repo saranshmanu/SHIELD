@@ -46,6 +46,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = workTableView.dequeueReusableCell(withIdentifier: "work", for: indexPath as IndexPath) as! ProfileTableViewCell
         if (tasks[indexPath.row]["status"]! as! String)  == "0"{
+            cell.status.backgroundColor = UIColor.init(red: 82/255, green: 102/255, blue: 143/255, alpha: 1.0)
         } else {
             cell.status.backgroundColor = UIColor.clear
         }
