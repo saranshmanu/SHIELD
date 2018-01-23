@@ -72,12 +72,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     @IBAction func loginAction(_ sender: Any) {
         start()
-        Data.username = usernameTextField.text!
-        Data.password = passwordTextField.text!
-        FIRAuth.auth()?.signIn(withEmail: Data.username, password: Data.password) { (user, error) in
+        FIRAuth.auth()?.signIn(withEmail: self.usernameTextField.text!, password: self.passwordTextField.text!) { (user, error) in
             if error == nil {
                 self.stop()
                 self.dismiss(animated: true, completion: nil)
+                Data.username = self.usernameTextField.text!
+                Data.password = self.passwordTextField.text!
                 Data.uid = (FIRAuth.auth()?.currentUser?.uid)!
                 Data.isLogged = true
                 network.loadData()

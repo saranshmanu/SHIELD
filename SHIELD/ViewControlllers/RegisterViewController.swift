@@ -43,11 +43,12 @@ class RegisterViewController: FormViewController {
                     "registrationNumber":self.form.allRows[1].baseValue! as! String,
                     "phoneNumber":self.form.allRows[2].baseValue! as! String,
                     "email":self.form.allRows[3].baseValue! as! String,
-                    "department":department,
+                    "department":Data.findDepartmentCode(code: department),
                     "isAdmin":"0",
+                    "available":"1",
                     "designation":"Core Commitee Member"
                 ]
-                FIRDatabase.database().reference().child("member").setValue(register)
+                FIRDatabase.database().reference().child("member").child((FIRAuth.auth()?.currentUser?.uid)!).setValue(register)
                 self.navigationController?.popToRootViewController(animated: true)
             } else {
                 //create an alert that registration was not successfull

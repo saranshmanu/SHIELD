@@ -12,10 +12,72 @@ import Firebase
 class network:UIViewController {
     
     public static func loadData(){
-        network.fetchMessages()
-        network.observeMessages()
+        network.fetchProfile()
+        network.observeProfile()
+        network.fetchMembers()
+        network.observeMembers()
         network.fetchTasks()
         network.observeTasks()
+        network.fetchMessages()
+        network.observeMessages()
+    }
+    
+    public static func fetchProfile() {
+        FIRDatabase.database().reference().child("member").child((FIRAuth.auth()?.currentUser?.uid)!).observeSingleEvent(of: .value , with: { (snapshot) in
+            // Get user value
+            if let value = snapshot.value as? NSDictionary{
+                Data.name = value["name"] as! String
+                Data.registrationNumber = value["registrationNumber"] as! String
+                Data.phoneNumber = value["phoneNumber"] as! String
+                Data.designation = value["designation"] as! String
+                Data.departmentCode = value["department"] as! String
+                if value["isAdmin"] as! String == "0"{
+                    Data.isAdmin = false
+                } else {
+                    Data.isAdmin = true
+                }
+                if value["available"] as! String == "0"{
+                    Data.isAvailable = false
+                } else {
+                    Data.isAvailable = true
+                }
+            }
+            // ...
+        }) { (error) in
+            print("error")
+            print(error.localizedDescription)
+        }
+    }
+    
+    public static func observeProfile(){
+        FIRDatabase.database().reference().child("member").child((FIRAuth.auth()?.currentUser?.uid)!).observe(.childChanged, with: {_ in
+            self.fetchProfile()
+        })
+    }
+    
+    public static func fetchMembers() {
+        FIRDatabase.database().reference().child("member").observeSingleEvent(of: .value , with: { (snapshot) in
+            // Get user value
+            if let value = snapshot.value as? NSDictionary{
+                Data.members.removeAll()
+                for (key, val) in value{
+                    var x = val as! NSDictionary
+                    if String(describing: x["department"]!) == Data.departmentCode{
+                        Data.members.append(x as! NSDictionary)
+                    }
+                }
+            }
+            // ...
+        }) { (error) in
+            print("error")
+            print(error.localizedDescription)
+        }
+    }
+    
+    public static func observeMembers(){
+        FIRDatabase.database().reference().child("member").observe(.childChanged, with: {_ in
+            self.fetchMembers()
+        })
     }
     
     public static func observeTasks(){

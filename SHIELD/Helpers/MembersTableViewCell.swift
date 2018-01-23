@@ -11,7 +11,6 @@ import UIKit
 class MembersTableViewCell: UITableViewCell {
 
     @IBOutlet weak var status: UIView!
-    @IBOutlet weak var department: UILabel!
     @IBOutlet weak var registrationNumber: UILabel!
     @IBOutlet weak var name: UILabel!
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class MembersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -17,14 +18,12 @@ class MembersViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var viewCard: UIView!
     @IBOutlet weak var membersTableView: UITableView!
     
-    var i = 0
     @IBAction func statusToggle(_ sender: Any) {
-        if i%2 == 0{
-            availableLabel.isHidden = true
+        if Data.isAvailable == true{
+            FIRDatabase.database().reference().child("member").child((FIRAuth.auth()?.currentUser?.uid)!).child("available").setValue("0")
         } else {
-            availableLabel.isHidden = false
+            FIRDatabase.database().reference().child("member").child((FIRAuth.auth()?.currentUser?.uid)!).child("available").setValue("1")
         }
-        i = i + 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,12 +40,26 @@ class MembersViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = membersTableView.dequeueReusableCell(withIdentifier: "members", for: indexPath as IndexPath) as! MembersTableViewCell
-        cell.status.backgroundColor = UIColor.clear
+        if Data.members[indexPath.row]["available"] as! String == "0"{
+            cell.status.backgroundColor = UIColor.clear
+        } else {
+            cell.status.backgroundColor = UIColor.init(red: 82/255, green: 102/255, blue: 143/255, alpha: 1.0)
+        }
+        cell.name.text = Data.members[indexPath.row]["name"] as! String
+        cell.registrationNumber.text = Data.members[indexPath.row]["registrationNumber"] as! String
         return cell
     }
     
     override func viewDidAppear(_ animated: Bool) {
         membersTableView.reloadData()
+        nameLabel.text = Data.name
+        departmentLabel.text = Data.findDepartmentName(departmentCode: Data.departmentCode) + " Department"
+        registrationNumberLabel.text = Data.registrationNumber
+        if Data.isAvailable == true {
+            availableLabel.isHidden = false
+        } else {
+            availableLabel.isHidden = true
+        }
     }
     
     override func viewDidLoad() {
@@ -54,9 +67,16 @@ class MembersViewController: UIViewController, UITableViewDataSource, UITableVie
         UIApplication.shared.statusBarStyle = .lightContent
         membersTableView.delegate = self
         membersTableView.dataSource = self
-        nameLabel.text = Data.name
-        departmentLabel.text = Data.findDepartmentName(departmentCode: Data.departmentCode) + " Department"
-        registrationNumberLabel.text = Data.registrationNumber
+        availableLabel.isHidden = true
+        FIRDatabase.database().reference().child("member").child((FIRAuth.auth()?.currentUser?.uid)!).observe(.childChanged, with: {(snapshot) in
+            if snapshot.value! as! String == "0"{
+                Data.isAvailable = false
+                self.availableLabel.isHidden = true
+            } else {
+                Data.isAvailable = true
+                self.availableLabel.isHidden = false
+            }
+        })
     }
 
     override func didReceiveMemoryWarning() {
