@@ -19,6 +19,9 @@
 		9570FFBF20029E8E00DF4A07 /* MembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9570FFBE20029E8E00DF4A07 /* MembersViewController.swift */; };
 		9570FFC72003EA1B00DF4A07 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9570FFC62003EA1B00DF4A07 /* TaskViewController.swift */; };
 		9570FFCA2003EEF100DF4A07 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9570FFC92003EEF100DF4A07 /* TaskTableViewCell.swift */; };
+		95ABEB1B2017813D0094953D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ABEB1A2017813D0094953D /* LoginViewController.swift */; };
+		95ABEB1D2017814B0094953D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ABEB1C2017814B0094953D /* RegisterViewController.swift */; };
+		95ABEB1F201782640094953D /* NetworkEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ABEB1E201782640094953D /* NetworkEngine.swift */; };
 		95BFD97D2008F56B00F65439 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 95BFD97C2008F56B00F65439 /* data.json */; };
 		95BFD97F2008F80B00F65439 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BFD97E2008F80B00F65439 /* MessagesViewController.swift */; };
 		95BFD9812008F95D00F65439 /* MessagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BFD9802008F95D00F65439 /* MessagesTableViewCell.swift */; };
@@ -74,6 +77,9 @@
 		9570FFBE20029E8E00DF4A07 /* MembersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersViewController.swift; sourceTree = "<group>"; };
 		9570FFC62003EA1B00DF4A07 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		9570FFC92003EEF100DF4A07 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		95ABEB1A2017813D0094953D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		95ABEB1C2017814B0094953D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		95ABEB1E201782640094953D /* NetworkEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEngine.swift; sourceTree = "<group>"; };
 		95BFD97C2008F56B00F65439 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		95BFD97E2008F80B00F65439 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		95BFD9802008F95D00F65439 /* MessagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewCell.swift; sourceTree = "<group>"; };
@@ -175,6 +181,7 @@
 				95BFD97C2008F56B00F65439 /* data.json */,
 				95E350B12015069B0090AABE /* ViewControlllers */,
 				95E350C32015F7D60090AABE /* Constants.swift */,
+				95ABEB1E201782640094953D /* NetworkEngine.swift */,
 			);
 			path = SHIELD;
 			sourceTree = "<group>";
@@ -207,6 +214,9 @@
 				95E350BB2015E2350090AABE /* MessageCreationViewController.swift */,
 				95E350B72015DEAE0090AABE /* DepartmentViewController.swift */,
 				95E350BF2015E4C50090AABE /* DepartmentInformationViewController.swift */,
+				95ABEB1A2017813D0094953D /* LoginViewController.swift */,
+				95ABEB1C2017814B0094953D /* RegisterViewController.swift */,
+				95E350B420151DDC0090AABE /* HomeTabBarController.swift */,
 			);
 			path = ViewControlllers;
 			sourceTree = "<group>";
@@ -214,7 +224,6 @@
 		95E350B3201506DF0090AABE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				95E350B420151DDC0090AABE /* HomeTabBarController.swift */,
 				9570FFBC20029E7B00DF4A07 /* MembersTableViewCell.swift */,
 				9570FFC92003EEF100DF4A07 /* TaskTableViewCell.swift */,
 				95BFD9802008F95D00F65439 /* MessagesTableViewCell.swift */,
@@ -543,6 +552,9 @@
 				9570FFC72003EA1B00DF4A07 /* TaskViewController.swift in Sources */,
 				95E350C42015F7D60090AABE /* Constants.swift in Sources */,
 				95E350BA2015DEEC0090AABE /* DepartmentTableViewCell.swift in Sources */,
+				95ABEB1B2017813D0094953D /* LoginViewController.swift in Sources */,
+				95ABEB1D2017814B0094953D /* RegisterViewController.swift in Sources */,
+				95ABEB1F201782640094953D /* NetworkEngine.swift in Sources */,
 				9570FFBD20029E7B00DF4A07 /* MembersTableViewCell.swift in Sources */,
 				95BFD9812008F95D00F65439 /* MessagesTableViewCell.swift in Sources */,
 				95E350BC2015E2350090AABE /* MessageCreationViewController.swift in Sources */,

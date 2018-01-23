@@ -58,11 +58,19 @@ class ScrollingTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioni
 class HomeTabBarController: UITabBarController {
 
     let del = ScrollingTabBarControllerDelegate()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.delegate = del
+        if Data.isLogged == true{
+            network.loadData()
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let viewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+                self.present(viewController, animated: true, completion: nil)
+            })
+        }
     }
 
     override func didReceiveMemoryWarning() {

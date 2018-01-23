@@ -76,7 +76,7 @@ class TaskCreationViewController: FormViewController {
                 $0.value = Date(timeIntervalSinceReferenceDate: 0)
             }
             +++ SelectableSection<ListCheckRow<String>>("Department", selectionType: .singleSelection(enableDeselection: true))
-        let department = Data.departments
+            let department = Data.departments
             for option in department {
                 form.last! <<< ListCheckRow<String>(option){ listRow in
                     listRow.title = option
