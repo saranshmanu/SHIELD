@@ -19,42 +19,62 @@ class RegisterViewController: FormViewController {
     }
     
     @IBAction func registerAction(_ sender: Any) {
-        if form.allRows[0].baseValue != nil || form.allRows[1].baseValue != nil || form.allRows[2].baseValue != nil || form.allRows[3].baseValue != nil || form.allRows[4].baseValue != nil{
-        } else {
-            //perform an alert that the message field is empty
-            alert(title: "Oops!", message: "Please enter all the following fields")
-            return
-        }
-        var department = ""
-        for i in 5...Data.departments.count-1{
-            if form.allRows[i].baseValue != nil{
-                department = form.allRows[i].baseValue! as! String
-            }
-        }
-        if department == ""{
-            // perform an alert that the department is not selected
-            alert(title: "Oops!", message: "Please select a department to which you belong!")
-            return
-        }
-        FIRAuth.auth()?.createUser(withEmail: form.allRows[3].baseValue! as! String, password: form.allRows[4].baseValue! as! String) { (user, error) in
-            if error == nil {
-                var register = [
-                    "name": self.form.allRows[0].baseValue! as! String,
-                    "registrationNumber":self.form.allRows[1].baseValue! as! String,
-                    "phoneNumber":self.form.allRows[2].baseValue! as! String,
-                    "email":self.form.allRows[3].baseValue! as! String,
-                    "department":Data.findDepartmentCode(code: department),
-                    "isAdmin":"0",
-                    "available":"1",
-                    "designation":"Core Commitee Member"
-                ]
-                FIRDatabase.database().reference().child("member").child((FIRAuth.auth()?.currentUser?.uid)!).setValue(register)
-                self.navigationController?.popToRootViewController(animated: true)
+        let sv = UIViewController.displaySpinner(onView: self.view)
+        if Reachability.isConnectedToNetwork(){
+            // connected to the internet
+            if form.allRows[0].baseValue != nil || form.allRows[1].baseValue != nil || form.allRows[2].baseValue != nil || form.allRows[3].baseValue != nil || form.allRows[4].baseValue != nil{
             } else {
-                //create an alert that registration was not successfull
-                self.alert(title: "Oops!", message: "Registration not successfull")
+                //perform an alert that the message field is empty
+                UIViewController.removeSpinner(spinner: sv)
+                alert(title: "Oops!", message: "Please enter all the following fields")
+                return
             }
+            var department = ""
+            for i in 5...Data.departments.count-1{
+                if form.allRows[i].baseValue != nil{
+                    department = form.allRows[i].baseValue! as! String
+                }
+            }
+            if department == ""{
+                // perform an alert that the department is not selected
+                UIViewController.removeSpinner(spinner: sv)
+                alert(title: "Oops!", message: "Please select a department to which you belong!")
+                return
+            }
+            FIRAuth.auth()?.createUser(withEmail: form.allRows[3].baseValue! as! String, password: form.allRows[4].baseValue! as! String) { (user, error) in
+                if error == nil {
+                    var register = [
+                        "name": self.form.allRows[0].baseValue! as! String,
+                        "registrationNumber":self.form.allRows[1].baseValue! as! String,
+                        "phoneNumber":self.form.allRows[2].baseValue! as! String,
+                        "email":self.form.allRows[3].baseValue! as! String,
+                        "department":Data.findDepartmentCode(code: department),
+                        "isAdmin":"0",
+                        "available":"1",
+                        "designation":"Core Commitee Member"
+                    ]
+                    FIRDatabase.database().reference().child("member").child((FIRAuth.auth()?.currentUser?.uid)!).setValue(register){
+                        (err, resp) in
+                        if err == nil{
+                            UIViewController.removeSpinner(spinner: sv)
+                            self.navigationController?.popToRootViewController(animated: true)
+                        } else {
+                            UIViewController.removeSpinner(spinner: sv)
+                            self.alert(title: "Oops!", message: "Posting not successfull")
+                        }
+                    }
+                } else {
+                    //create an alert that registration was not successfull
+                    UIViewController.removeSpinner(spinner: sv)
+                    self.alert(title: "Oops!", message: "Registration not successfull")
+                }
+            }
+        }else{
+            // not connected to the internet
+            UIViewController.removeSpinner(spinner: sv)
+            alert(title: "Oops!", message: "You are not connected to the internet")
         }
+        
     }
     
     override func viewDidLoad() {

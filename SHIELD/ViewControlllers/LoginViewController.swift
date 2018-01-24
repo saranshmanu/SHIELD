@@ -20,12 +20,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        loader.isHidden = true
         navigationController?.navigationBar.tintColor = .white
         usernameTextField.delegate = self
         passwordTextField.delegate = self
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard)))
     }
     
+    @IBOutlet weak var loader: UIActivityIndicatorView!
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
     @IBOutlet weak var bottonConstraint: NSLayoutConstraint!
     @IBOutlet weak var loginButton: UIButton!
@@ -64,11 +66,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         usernameTextField.isEnabled = false
         passwordTextField.isEnabled = false
         loginButton.isEnabled = false
+        loader.isHidden = false
+        loader.startAnimating()
     }
     func stop() {
         usernameTextField.isEnabled = true
         passwordTextField.isEnabled = true
         loginButton.isEnabled = true
+        loader.isHidden = true
+        loader.stopAnimating()
     }
     @IBAction func loginAction(_ sender: Any) {
         start()

@@ -21,8 +21,10 @@ class MembersViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBAction func statusToggle(_ sender: Any) {
         if Data.isAvailable == true{
             FIRDatabase.database().reference().child("member").child((FIRAuth.auth()?.currentUser?.uid)!).child("available").setValue("0")
+            availableLabel.isHidden = false
         } else {
             FIRDatabase.database().reference().child("member").child((FIRAuth.auth()?.currentUser?.uid)!).child("available").setValue("1")
+            availableLabel.isHidden = true
         }
     }
     

@@ -16,39 +16,66 @@ class MessageCreationViewController: FormViewController {
 
     var departmentName:String = ""
     
+    public func alert(title:String, message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
+    
     @IBAction func postAction(_ sender: Any) {
+        let sv = UIViewController.displaySpinner(onView: self.view)
         if Data.isAdmin{
-            var text = ""
-            if form.allRows[0].baseValue != nil{
-                text = form.allRows[0].baseValue! as! String
-            } else {
-                //perform an alert that the message field is empty
-                return
-            }
-            var department = ""
-            //to get the current date and time
-            for i in 1...Data.departments.count-1{
-                if form.allRows[i].baseValue != nil{
-                    department = form.allRows[i].baseValue! as! String
+            // connected to the internet
+            if Reachability.isConnectedToNetwork(){
+                var text = ""
+                if form.allRows[0].baseValue != nil{
+                    text = form.allRows[0].baseValue! as! String
+                } else {
+                    //perform an alert that the message field is empty
+                    UIViewController.removeSpinner(spinner: sv)
+                    alert(title: "Oops!", message: "Message is empty!")
+                    return
                 }
+                var department = ""
+                //to get the current date and time
+                for i in 1...Data.departments.count-1{
+                    if form.allRows[i].baseValue != nil{
+                        department = form.allRows[i].baseValue! as! String
+                    }
+                }
+                if department == ""{
+                    //perform an alert that the department is not selected
+                    UIViewController.removeSpinner(spinner: sv)
+                    alert(title: "Oops!", message: "Select a department to post the message!")
+                    return
+                }
+                var message = [
+                    "departmentCode": Data.findDepartmentCode(code: department),
+                    "registrationNumber":Data.registrationNumber,
+                    "time":Data.findCurrentTime(),
+                    "date":Data.findCurrentDate(),
+                    "message":text,
+                    "name" :Data.name,
+                    "designation":Data.designation
+                ]
+                FIRDatabase.database().reference().child("messages").childByAutoId().setValue(message) {
+                    (error, response) in
+                    if error == nil{
+                        UIViewController.removeSpinner(spinner: sv)
+                        self.navigationController?.popToRootViewController(animated: true)
+                    } else {
+                        UIViewController.removeSpinner(spinner: sv)
+                        self.alert(title: "Oops!", message: "Message failed to get delivered!")
+                    }
+                }
+            }else{
+                UIViewController.removeSpinner(spinner: sv)
+                self.alert(title: "Oops!", message: "You are not connected to the internet!")
             }
-            if department == ""{
-                //perform an alert that the department is not selected
-                return
-            }
-            var message = [
-                "departmentCode": Data.findDepartmentCode(code: department),
-                "registrationNumber":Data.registrationNumber,
-                "time":Data.findCurrentTime(),
-                "date":Data.findCurrentDate(),
-                "message":text,
-                "name" :Data.name,
-                "designation":Data.designation
-            ]
-            FIRDatabase.database().reference().child("messages").childByAutoId().setValue(message)
-            navigationController?.popToRootViewController(animated: true)
         } else {
             //perform an alert that the user is not authorised to send message on the group
+            UIViewController.removeSpinner(spinner: sv)
+            alert(title: "Oops!", message: "You are not authorised to post a message!")
         }
     }
     

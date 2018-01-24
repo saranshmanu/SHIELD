@@ -496,7 +496,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h1R-EK-ngN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2854" y="1638"/>
+            <point key="canvasLocation" x="2853.5999999999999" y="1637.6311844077961"/>
         </scene>
         <!--Home Tab Bar Controller-->
         <scene sceneID="y5R-Fo-A78">
@@ -841,11 +841,16 @@
                                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="pNY-li-K7l">
+                                                <rect key="frame" x="178" y="263" width="20" height="40"/>
+                                                <color key="color" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="0wO-Jl-g9g" firstAttribute="centerX" secondItem="BCa-wD-5De" secondAttribute="centerX" id="67s-Cq-ubc"/>
                                             <constraint firstAttribute="bottom" secondItem="5Qr-1j-e2B" secondAttribute="bottom" constant="8" id="7BK-da-a2t"/>
+                                            <constraint firstItem="pNY-li-K7l" firstAttribute="centerX" secondItem="BCa-wD-5De" secondAttribute="centerX" id="GH2-6e-YeI"/>
                                             <constraint firstItem="xTn-40-U9r" firstAttribute="top" secondItem="BCa-wD-5De" secondAttribute="top" constant="61" id="GWU-6o-sFU"/>
                                             <constraint firstItem="0wO-Jl-g9g" firstAttribute="leading" secondItem="BCa-wD-5De" secondAttribute="leading" constant="40" id="JZM-rU-avV"/>
                                             <constraint firstItem="1De-Ex-qea" firstAttribute="top" secondItem="xTn-40-U9r" secondAttribute="bottom" constant="8" id="S4a-QK-Dph"/>
@@ -854,6 +859,7 @@
                                             <constraint firstItem="40q-fQ-rYL" firstAttribute="width" secondItem="0wO-Jl-g9g" secondAttribute="width" id="hyV-We-1TH"/>
                                             <constraint firstItem="xTn-40-U9r" firstAttribute="centerX" secondItem="BCa-wD-5De" secondAttribute="centerX" id="ilE-tF-1bD"/>
                                             <constraint firstAttribute="trailing" secondItem="0wO-Jl-g9g" secondAttribute="trailing" constant="40" id="jVE-Wx-fbY"/>
+                                            <constraint firstItem="0wO-Jl-g9g" firstAttribute="top" secondItem="pNY-li-K7l" secondAttribute="bottom" constant="37" id="nb5-Iq-ivw"/>
                                             <constraint firstItem="M5z-Ph-HQX" firstAttribute="centerX" secondItem="BCa-wD-5De" secondAttribute="centerX" id="qN7-WL-xa5"/>
                                             <constraint firstItem="1De-Ex-qea" firstAttribute="centerX" secondItem="BCa-wD-5De" secondAttribute="centerX" id="u2l-3f-Clo"/>
                                             <constraint firstItem="40q-fQ-rYL" firstAttribute="centerX" secondItem="BCa-wD-5De" secondAttribute="centerX" id="vrX-Pl-31C"/>
@@ -900,6 +906,7 @@
                     <navigationItem key="navigationItem" title="Login" id="OMs-qg-Nen"/>
                     <connections>
                         <outlet property="bottonConstraint" destination="b01-qB-Qeg" id="wHH-XZ-9t9"/>
+                        <outlet property="loader" destination="pNY-li-K7l" id="ZJo-7C-Th7"/>
                         <outlet property="loginButton" destination="WUa-wp-byI" id="0ak-i3-ILF"/>
                         <outlet property="passwordTextField" destination="yOW-IX-PeQ" id="8AO-D8-lC5"/>
                         <outlet property="topConstraint" destination="GWU-6o-sFU" id="ale-41-pzG"/>
