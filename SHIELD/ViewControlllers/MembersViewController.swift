@@ -19,12 +19,12 @@ class MembersViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var membersTableView: UITableView!
     
     @IBAction func statusToggle(_ sender: Any) {
-        if Data.isAvailable == true{
+        if Data.isAvailable == true {
             FIRDatabase.database().reference().child("member").child((FIRAuth.auth()?.currentUser?.uid)!).child("available").setValue("0")
-            availableLabel.isHidden = false
+            availableLabel.isHidden = true
         } else {
             FIRDatabase.database().reference().child("member").child((FIRAuth.auth()?.currentUser?.uid)!).child("available").setValue("1")
-            availableLabel.isHidden = true
+            availableLabel.isHidden = false
         }
     }
     
@@ -69,16 +69,6 @@ class MembersViewController: UIViewController, UITableViewDataSource, UITableVie
         UIApplication.shared.statusBarStyle = .lightContent
         membersTableView.delegate = self
         membersTableView.dataSource = self
-        availableLabel.isHidden = true
-        FIRDatabase.database().reference().child("member").child((FIRAuth.auth()?.currentUser?.uid)!).observe(.childChanged, with: {(snapshot) in
-            if snapshot.value! as! String == "0"{
-                Data.isAvailable = false
-                self.availableLabel.isHidden = true
-            } else {
-                Data.isAvailable = true
-                self.availableLabel.isHidden = false
-            }
-        })
     }
 
     override func didReceiveMemoryWarning() {

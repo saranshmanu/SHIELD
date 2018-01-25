@@ -11,6 +11,25 @@ import UIKit
 class DepartmentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var departmentTableView: UITableView!
+    @IBOutlet weak var logoutButton: UIBarButtonItem!
+    
+    public func alert(title:String, message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
+    
+    @IBAction func logoutAction(_ sender: Any) {
+        if network.logout() == true{
+            DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let viewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+                self.present(viewController, animated: true, completion: nil)
+            })
+        } else {
+            self.alert(title: "Oops!", message: "Failed to logout.")
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Data.departments.count

@@ -21,7 +21,7 @@ public class Data {
     public static var designation:String = ""
     public static var phoneNumber:String = ""
     public static var isAdmin:Bool = false
-    public static var isAvailable:Bool = false
+    public static var isAvailable:Bool?
     public static var isLogged:Bool = false
     public static var messages:[NSDictionary] = []
     public static var tasks:[NSDictionary] = []

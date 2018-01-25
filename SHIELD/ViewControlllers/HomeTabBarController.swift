@@ -15,11 +15,10 @@ class ScrollingTabBarControllerDelegate: NSObject, UITabBarControllerDelegate {
 }
 
 class ScrollingTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
-    
     weak var transitionContext: UIViewControllerContextTransitioning?
     var tabBarController: UITabBarController!
     var lastIndex = 0
-
+    
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.4
     }

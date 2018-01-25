@@ -22,6 +22,17 @@ class network:UIViewController {
         network.observeMessages()
     }
     
+    public static func logout() -> Bool {
+        do{
+            try FIRAuth.auth()?.signOut()
+            Data.isLogged = false
+            return true
+        }catch{
+            Data.isLogged = true
+            return false
+        }
+    }
+    
     public static func fetchProfile() {
         FIRDatabase.database().reference().child("member").child((FIRAuth.auth()?.currentUser?.uid)!).observeSingleEvent(of: .value , with: { (snapshot) in
             // Get user value

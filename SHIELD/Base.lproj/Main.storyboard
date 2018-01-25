@@ -664,9 +664,17 @@
                             <constraint firstItem="WZn-hu-3Ct" firstAttribute="top" secondItem="8iC-oZ-lzp" secondAttribute="bottom" id="laX-h4-Vkg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Departments" id="uAg-B6-5PX"/>
+                    <navigationItem key="navigationItem" title="Departments" id="uAg-B6-5PX">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="dvn-dr-Fj5">
+                            <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="logoutAction:" destination="MLU-VR-CPa" id="nh3-FU-JjP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="departmentTableView" destination="8iC-oZ-lzp" id="Mn8-kn-Mwo"/>
+                        <outlet property="logoutButton" destination="dvn-dr-Fj5" id="OKF-W0-yN2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0zu-vu-mDk" userLabel="First Responder" sceneMemberID="firstResponder"/>
