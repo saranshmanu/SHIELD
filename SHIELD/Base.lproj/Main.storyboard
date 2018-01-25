@@ -752,7 +752,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="0wO-Jl-g9g">
                                                 <rect key="frame" x="40" y="340" width="295" height="109"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="saranshmanu@yahoo.co.in" placeholder="username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8VN-oA-xjv">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8VN-oA-xjv">
                                                         <rect key="frame" x="0.0" y="0.0" width="295" height="50"/>
                                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="tintColor" red="0.32280815969999999" green="0.39933268230000002" blue="0.56065538189999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -774,7 +774,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="manu1998" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yOW-IX-PeQ">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yOW-IX-PeQ">
                                                         <rect key="frame" x="0.0" y="59" width="295" height="50"/>
                                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="tintColor" red="0.32280815969999999" green="0.39933268230000002" blue="0.56065538189999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -808,8 +808,8 @@
                                                     <segue destination="DIA-ml-HxR" kind="show" id="jkn-Ds-nfZ"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© IEEE-VIT Chapter 2017" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Qr-1j-e2B">
-                                                <rect key="frame" x="99" y="573" width="177" height="22"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© CSED 2017" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Qr-1j-e2B">
+                                                <rect key="frame" x="138" y="573" width="99.5" height="22"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="16"/>
                                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -843,12 +843,6 @@
                                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VIT University" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1De-Ex-qea">
-                                                <rect key="frame" x="136.5" y="142" width="103.5" height="23.5"/>
-                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="pNY-li-K7l">
                                                 <rect key="frame" x="178" y="263" width="20" height="40"/>
                                                 <color key="color" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -861,7 +855,6 @@
                                             <constraint firstItem="pNY-li-K7l" firstAttribute="centerX" secondItem="BCa-wD-5De" secondAttribute="centerX" id="GH2-6e-YeI"/>
                                             <constraint firstItem="xTn-40-U9r" firstAttribute="top" secondItem="BCa-wD-5De" secondAttribute="top" constant="61" id="GWU-6o-sFU"/>
                                             <constraint firstItem="0wO-Jl-g9g" firstAttribute="leading" secondItem="BCa-wD-5De" secondAttribute="leading" constant="40" id="JZM-rU-avV"/>
-                                            <constraint firstItem="1De-Ex-qea" firstAttribute="top" secondItem="xTn-40-U9r" secondAttribute="bottom" constant="8" id="S4a-QK-Dph"/>
                                             <constraint firstItem="M5z-Ph-HQX" firstAttribute="top" secondItem="40q-fQ-rYL" secondAttribute="bottom" constant="19" id="b01-qB-Qeg"/>
                                             <constraint firstItem="40q-fQ-rYL" firstAttribute="top" secondItem="0wO-Jl-g9g" secondAttribute="bottom" constant="20" id="fjT-NO-XIR"/>
                                             <constraint firstItem="40q-fQ-rYL" firstAttribute="width" secondItem="0wO-Jl-g9g" secondAttribute="width" id="hyV-We-1TH"/>
@@ -869,7 +862,6 @@
                                             <constraint firstAttribute="trailing" secondItem="0wO-Jl-g9g" secondAttribute="trailing" constant="40" id="jVE-Wx-fbY"/>
                                             <constraint firstItem="0wO-Jl-g9g" firstAttribute="top" secondItem="pNY-li-K7l" secondAttribute="bottom" constant="37" id="nb5-Iq-ivw"/>
                                             <constraint firstItem="M5z-Ph-HQX" firstAttribute="centerX" secondItem="BCa-wD-5De" secondAttribute="centerX" id="qN7-WL-xa5"/>
-                                            <constraint firstItem="1De-Ex-qea" firstAttribute="centerX" secondItem="BCa-wD-5De" secondAttribute="centerX" id="u2l-3f-Clo"/>
                                             <constraint firstItem="40q-fQ-rYL" firstAttribute="centerX" secondItem="BCa-wD-5De" secondAttribute="centerX" id="vrX-Pl-31C"/>
                                             <constraint firstItem="5Qr-1j-e2B" firstAttribute="top" secondItem="M5z-Ph-HQX" secondAttribute="bottom" constant="5" id="wsq-QT-QCx"/>
                                             <constraint firstItem="5Qr-1j-e2B" firstAttribute="centerX" secondItem="BCa-wD-5De" secondAttribute="centerX" id="zFS-tZ-p4E"/>
