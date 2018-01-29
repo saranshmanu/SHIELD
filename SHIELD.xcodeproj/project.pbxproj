@@ -77,6 +77,7 @@
 		9570FFBE20029E8E00DF4A07 /* MembersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersViewController.swift; sourceTree = "<group>"; };
 		9570FFC62003EA1B00DF4A07 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		9570FFC92003EEF100DF4A07 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		9588FC02201B8A20002A1E58 /* SHIELD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SHIELD.entitlements; sourceTree = "<group>"; };
 		95ABEB1A2017813D0094953D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		95ABEB1C2017814B0094953D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		95ABEB1E201782640094953D /* NetworkEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEngine.swift; sourceTree = "<group>"; };
@@ -173,8 +174,10 @@
 		955DBD801FC43D1700D191D9 /* SHIELD */ = {
 			isa = PBXGroup;
 			children = (
+				9588FC02201B8A20002A1E58 /* SHIELD.entitlements */,
 				95E350B3201506DF0090AABE /* Helpers */,
 				955DBD851FC43D1700D191D9 /* Main.storyboard */,
+				95E350C12015F7890090AABE /* GoogleService-Info.plist */,
 				955DBD8D1FC43D1700D191D9 /* Info.plist */,
 				955DBD881FC43D1700D191D9 /* Assets.xcassets */,
 				955DBD8A1FC43D1700D191D9 /* LaunchScreen.storyboard */,
@@ -206,6 +209,7 @@
 		95D4E70820184E490093D21A /* utlis */ = {
 			isa = PBXGroup;
 			children = (
+				955DBD811FC43D1700D191D9 /* AppDelegate.swift */,
 				95E350C32015F7D60090AABE /* Constants.swift */,
 				95ABEB1E201782640094953D /* NetworkEngine.swift */,
 			);
@@ -235,9 +239,7 @@
 				9570FFBC20029E7B00DF4A07 /* MembersTableViewCell.swift */,
 				9570FFC92003EEF100DF4A07 /* TaskTableViewCell.swift */,
 				95BFD9802008F95D00F65439 /* MessagesTableViewCell.swift */,
-				95E350C12015F7890090AABE /* GoogleService-Info.plist */,
 				95E350B92015DEEC0090AABE /* DepartmentTableViewCell.swift */,
-				955DBD811FC43D1700D191D9 /* AppDelegate.swift */,
 				95BFD9822008FBFD00F65439 /* RippleEffect.swift */,
 			);
 			path = Helpers;
@@ -323,6 +325,11 @@
 						DevelopmentTeam = JCRFV5ZL52;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					955DBD911FC43D1700D191D9 = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -512,12 +519,14 @@
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -719,6 +728,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = SHIELD/SHIELD.entitlements;
 				DEVELOPMENT_TEAM = JCRFV5ZL52;
 				INFOPLIST_FILE = SHIELD/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -737,6 +747,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = SHIELD/SHIELD.entitlements;
 				DEVELOPMENT_TEAM = JCRFV5ZL52;
 				INFOPLIST_FILE = SHIELD/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
