@@ -179,9 +179,9 @@
 				955DBD851FC43D1700D191D9 /* Main.storyboard */,
 				95E350C12015F7890090AABE /* GoogleService-Info.plist */,
 				955DBD8D1FC43D1700D191D9 /* Info.plist */,
+				95BFD97C2008F56B00F65439 /* data.json */,
 				955DBD881FC43D1700D191D9 /* Assets.xcassets */,
 				955DBD8A1FC43D1700D191D9 /* LaunchScreen.storyboard */,
-				95BFD97C2008F56B00F65439 /* data.json */,
 				95E350B12015069B0090AABE /* ViewControlllers */,
 				95D4E70820184E490093D21A /* utlis */,
 			);

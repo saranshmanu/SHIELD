@@ -30,7 +30,7 @@ class RegisterViewController: FormViewController {
                 return
             }
             var department = ""
-            for i in 5...Data.departments.count-1{
+            for i in 5...(11-1){
                 if form.allRows[i].baseValue != nil{
                     department = form.allRows[i].baseValue! as! String
                 }
@@ -46,13 +46,13 @@ class RegisterViewController: FormViewController {
                     var register = [
                         "name": self.form.allRows[0].baseValue! as! String,
                         "registrationNumber":self.form.allRows[1].baseValue! as! String,
-                        "phoneNumber":self.form.allRows[2].baseValue! as! String,
+                        "phoneNumber":9910749550,//Int(self.form.allRows[2].baseValue!)
                         "email":self.form.allRows[3].baseValue! as! String,
                         "department":Data.findDepartmentCode(code: department),
-                        "isAdmin":"0",
-                        "available":"1",
+                        "isAdmin":0,
+                        "available":1,
                         "designation":"Core Commitee Member"
-                    ]
+                        ] as [String : Any]
                     FIRDatabase.database().reference().child("member").child((FIRAuth.auth()?.currentUser?.uid)!).setValue(register){
                         (err, resp) in
                         if err == nil{
@@ -102,7 +102,7 @@ class RegisterViewController: FormViewController {
             }
             <<< PasswordRow(){ row in
                 row.title = "Password"
-                row.placeholder = "16BCIXXXX"
+                row.placeholder = "password"
             }
             +++ SelectableSection<ListCheckRow<String>>("Department", selectionType: .singleSelection(enableDeselection: true))
             let department = Data.departments

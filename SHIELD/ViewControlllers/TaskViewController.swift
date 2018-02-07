@@ -21,8 +21,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = workTableView.dequeueReusableCell(withIdentifier: "work", for: indexPath as IndexPath) as! ProfileTableViewCell
-        if (Data.tasks[indexPath.row]["status"]! as! String)  == "0"{
-            cell.status.backgroundColor = UIColor.init(red: 82/255, green: 102/255, blue: 143/255, alpha: 1.0)
+        if (Data.tasks[indexPath.row]["status"]! as! Int) == 0{
+            cell.status.backgroundColor = Data.redColor
         } else {
             cell.status.backgroundColor = UIColor.clear
         }
@@ -37,10 +37,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         workTableView.deselectRow(at: indexPath, animated: true)
         let actionSheetControllerIOS8: UIAlertController = UIAlertController(title: "Please select", message: "Option to select", preferredStyle: .actionSheet)
         let complete = UIAlertAction(title: "Completed", style: .default) { _ in
-            FIRDatabase.database().reference().child("task").child(Data.taskCodes[indexPath.row]).child("status").setValue("1")
+            FIRDatabase.database().reference().child("task").child(Data.taskCodes[indexPath.row]).child("status").setValue(1)
         }
         let notCompleted = UIAlertAction(title: "Not completed", style: .default) { _ in
-            FIRDatabase.database().reference().child("task").child(Data.taskCodes[indexPath.row]).child("status").setValue("0")
+            FIRDatabase.database().reference().child("task").child(Data.taskCodes[indexPath.row]).child("status").setValue(0)
         }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
         actionSheetControllerIOS8.addAction(cancel)

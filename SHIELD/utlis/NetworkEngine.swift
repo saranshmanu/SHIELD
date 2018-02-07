@@ -25,15 +25,15 @@ class network:UIViewController {
             if let value = snapshot.value as? NSDictionary {
                 Data.name = value["name"] as! String
                 Data.registrationNumber = value["registrationNumber"] as! String
-                Data.phoneNumber = value["phoneNumber"] as! String
+                Data.phoneNumber = value["phoneNumber"] as! Int
                 Data.designation = value["designation"] as! String
                 Data.departmentCode = value["department"] as! String
-                if value["isAdmin"] as! String == "0"{
+                if value["isAdmin"] as! Int == 0{
                     Data.isAdmin = false
                 } else {
                     Data.isAdmin = true
                 }
-                if value["available"] as! String == "0"{
+                if value["available"] as! Int == 0{
                     Data.isAvailable = false
                 } else {
                     Data.isAvailable = true
@@ -54,9 +54,10 @@ class network:UIViewController {
                 Data.members.removeAll()
                 for (key, val) in value{
                     var x = val as! NSDictionary
-                    if String(describing: x["department"]!) == Data.departmentCode{
-                        Data.members.append(x as! NSDictionary)
-                    }
+                    Data.members.append(x as! NSDictionary)
+//                    if String(describing: x["department"]!) == Data.departmentCode{
+//                        Data.members.append(x as! NSDictionary)
+//                    }
                 }
             }
             fetchTasks()
@@ -96,7 +97,7 @@ class network:UIViewController {
                 Data.messages.removeAll()
                 for (key, val) in value{
                     let x = val as! NSDictionary
-                    if String(describing: x["departmentCode"]!)  == Data.departmentCode{
+                    if String(describing: x["departmentCode"]!) == Data.departmentCode{
                         Data.messages.append(val as! NSDictionary)
                     }
                 }

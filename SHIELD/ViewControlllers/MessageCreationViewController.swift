@@ -38,7 +38,7 @@ class MessageCreationViewController: FormViewController {
                 }
                 var department = ""
                 //to get the current date and time
-                for i in 1...Data.departments.count-1{
+                for i in 1...(7-1){
                     if form.allRows[i].baseValue != nil{
                         department = form.allRows[i].baseValue! as! String
                     }

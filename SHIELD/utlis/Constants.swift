@@ -12,6 +12,7 @@ import UIKit
 
 public class Data {
     
+    public static var redColor:UIColor = UIColor.init(red: 222/255, green: 48/255, blue: 63/255, alpha: 1.0)
     public static var uid:String = ""
     public static var username:String = ""
     public static var password:String = ""
@@ -19,7 +20,7 @@ public class Data {
     public static var registrationNumber:String = ""
     public static var departmentCode:String = ""
     public static var designation:String = ""
-    public static var phoneNumber:String = ""
+    public static var phoneNumber:Int = 0
     public static var isAdmin:Bool = false
     public static var isAvailable:Bool?
     public static var isLogged:Bool = false
@@ -28,6 +29,7 @@ public class Data {
     public static var taskCodes:[String] = []
     public static var members:[NSDictionary] = []
     public static var departments:[String] = ["Technical", "Marketing", "Management", "Design", "Outreach", "Projects"]
+    public static var departmentCount:Int = 6
     public static var designations:[String] = ["Core Commitee Member", "President", "Vice Precident", "Tech Head"]
     
     public static func findCurrentDate() -> String{
@@ -45,24 +47,24 @@ public class Data {
     
     public static func findDepartmentName(departmentCode:String) -> String{
         switch departmentCode {
-            case "#01": return "Technical"
-            case "#02": return "Marketing"
-            case "#03": return "Management"
-            case "#04": return "Design"
-            case "#05": return "Outreach"
-            case "#06": return "Projects"
+            case "#1": return "Technical"
+            case "#2": return "Marketing"
+            case "#3": return "Management"
+            case "#4": return "Design"
+            case "#5": return "Outreach"
+            case "#6": return "Projects"
             default: return ""
         }
     }
     public static func findDepartmentCode(code:String) -> String{
         switch code {
-            case "Technical": return "#01"
-            case "Marketing": return "#02"
-            case "Management": return "#03"
-            case "Design": return "#04"
-            case "Outreach": return "#05"
-            case "Projects": return "#06"
-            default: return "#07"
+            case "Technical": return "#1"
+            case "Marketing": return "#2"
+            case "Management": return "#3"
+            case "Design": return "#4"
+            case "Outreach": return "#5"
+            case "Projects": return "#6"
+            default: return "#7"
         }
     }
     

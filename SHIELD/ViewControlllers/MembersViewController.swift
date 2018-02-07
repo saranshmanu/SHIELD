@@ -20,10 +20,10 @@ class MembersViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBAction func statusToggle(_ sender: Any) {
         if Data.isAvailable == true {
-            FIRDatabase.database().reference().child("member").child((FIRAuth.auth()?.currentUser?.uid)!).child("available").setValue("0")
+            FIRDatabase.database().reference().child("member").child((FIRAuth.auth()?.currentUser?.uid)!).child("available").setValue(0)
             availableLabel.isHidden = true
         } else {
-            FIRDatabase.database().reference().child("member").child((FIRAuth.auth()?.currentUser?.uid)!).child("available").setValue("1")
+            FIRDatabase.database().reference().child("member").child((FIRAuth.auth()?.currentUser?.uid)!).child("available").setValue(1)
             availableLabel.isHidden = false
         }
     }
@@ -42,10 +42,10 @@ class MembersViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = membersTableView.dequeueReusableCell(withIdentifier: "members", for: indexPath as IndexPath) as! MembersTableViewCell
-        if Data.members[indexPath.row]["available"] as! String == "0"{
+        if Data.members[indexPath.row]["available"] as! Int == 0{
             cell.status.backgroundColor = UIColor.clear
         } else {
-            cell.status.backgroundColor = UIColor.init(red: 82/255, green: 102/255, blue: 143/255, alpha: 1.0)
+            cell.status.backgroundColor = Data.redColor
         }
         cell.name.text = Data.members[indexPath.row]["name"] as! String
         cell.registrationNumber.text = Data.members[indexPath.row]["registrationNumber"] as! String

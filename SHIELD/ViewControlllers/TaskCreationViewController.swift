@@ -34,7 +34,7 @@ class TaskCreationViewController: FormViewController {
                 }
                 var department = ""
                 //to get the current date and time
-                for i in 3...Data.departments.count-1{
+                for i in 3...(9-1){
                     if form.allRows[i].baseValue != nil{
                         department = form.allRows[i].baseValue! as! String
                     }
@@ -63,10 +63,10 @@ class TaskCreationViewController: FormViewController {
                     "date":Data.findCurrentDate(),
                     "deadline" : deadline,
                     "message":text,
-                    "status" : "0",
+                    "status" : 0,
                     "name" :Data.name,
                     "designation":Data.designation
-                ]
+                    ] as [String : Any]
                 FIRDatabase.database().reference().child("task").childByAutoId().setValue(task){
                     (err, resp) in
                     if err == nil{
