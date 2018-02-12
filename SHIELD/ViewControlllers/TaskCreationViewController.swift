@@ -34,7 +34,7 @@ class TaskCreationViewController: FormViewController {
                 }
                 var department = ""
                 //to get the current date and time
-                for i in 3...(9-1){
+                for i in 3...(12-1){
                     if form.allRows[i].baseValue != nil{
                         department = form.allRows[i].baseValue! as! String
                     }

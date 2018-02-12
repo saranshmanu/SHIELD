@@ -28,7 +28,7 @@ public class Data {
     public static var tasks:[NSDictionary] = []
     public static var taskCodes:[String] = []
     public static var members:[NSDictionary] = []
-    public static var departments:[String] = ["Technical", "Marketing", "Management", "Design", "Outreach", "Projects"]
+    public static var departments:[String] = ["Editorial and Blog", "Events, UR and Stratergies", "Expansion", "General Secretary", "Human Resources", "Marketing", "Public Relations", "Startups" , "Technical and Design"]
     public static var departmentCount:Int = 6
     public static var designations:[String] = ["Core Commitee Member", "President", "Vice Precident", "Tech Head"]
     
@@ -44,27 +44,33 @@ public class Data {
         var x = String(calendar.component(.hour, from: date)) + ":" + String(calendar.component(.minute, from: date)) + ":" + String(calendar.component(.second, from: date))
         return x
     }
-    
+
     public static func findDepartmentName(departmentCode:String) -> String{
         switch departmentCode {
-            case "#1": return "Technical"
-            case "#2": return "Marketing"
-            case "#3": return "Management"
-            case "#4": return "Design"
-            case "#5": return "Outreach"
-            case "#6": return "Projects"
+            case "#0": return "Editorial and Blog"
+            case "#1": return "Events, UR and Stratergies"
+            case "#2": return "Expansion"
+            case "#3": return "General Secretary"
+            case "#4": return "Human Resources"
+            case "#5": return "Marketing"
+            case "#6": return "Public Relations"
+            case "#7": return "Startups"
+            case "#8": return "Technical and Design"
             default: return ""
         }
     }
     public static func findDepartmentCode(code:String) -> String{
         switch code {
-            case "Technical": return "#1"
-            case "Marketing": return "#2"
-            case "Management": return "#3"
-            case "Design": return "#4"
-            case "Outreach": return "#5"
-            case "Projects": return "#6"
-            default: return "#7"
+            case "Editorial and Blog": return "#0"
+            case "Events, UR and Stratergies": return "#1"
+            case "Expansion": return "#2"
+            case "General Secretary": return "#3"
+            case "Human Resources": return "#4"
+            case "Marketing": return "#5"
+            case "Public Relations": return "#6"
+            case "Startups": return "#7"
+            case "Technical and Design": return "#8"
+            default: return "#9"
         }
     }
     

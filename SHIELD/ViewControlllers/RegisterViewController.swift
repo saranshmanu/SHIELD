@@ -30,7 +30,7 @@ class RegisterViewController: FormViewController {
                 return
             }
             var department = ""
-            for i in 5...(11-1){
+            for i in 5...(14-1){
                 if form.allRows[i].baseValue != nil{
                     department = form.allRows[i].baseValue! as! String
                 }
@@ -46,7 +46,7 @@ class RegisterViewController: FormViewController {
                     var register = [
                         "name": self.form.allRows[0].baseValue! as! String,
                         "registrationNumber":self.form.allRows[1].baseValue! as! String,
-                        "phoneNumber":9910749550,//Int(self.form.allRows[2].baseValue!)
+                        "phoneNumber":Int(self.form.allRows[2].baseValue! as! String),
                         "email":self.form.allRows[3].baseValue! as! String,
                         "department":Data.findDepartmentCode(code: department),
                         "isAdmin":0,
