@@ -617,17 +617,17 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IS5-XT-2Yc">
                                                     <rect key="frame" x="15" y="11" width="345" height="203"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="p0L-2r-Swc">
-                                                            <rect key="frame" x="80.5" y="62" width="184.5" height="79.5"/>
+                                                        <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="N7d-uQ-BYk">
+                                                            <rect key="frame" x="20" y="65.5" width="305" height="73"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Technical" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsC-0r-4a9">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="184.5" height="61.5"/>
-                                                                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="45"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="department name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsC-0r-4a9">
+                                                                    <rect key="frame" x="-35" y="0.0" width="0.0" height="55"/>
+                                                                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="40"/>
                                                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DEPARTMENT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7aQ-X6-dXf">
-                                                                    <rect key="frame" x="0.0" y="61.5" width="184.5" height="18"/>
+                                                                    <rect key="frame" x="110" y="55" width="85" height="18"/>
                                                                     <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="13"/>
                                                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -637,8 +637,9 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.87058823529411766" green="0.18823529411764706" blue="0.24705882352941178" alpha="0.6700824058219178" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstItem="p0L-2r-Swc" firstAttribute="centerX" secondItem="IS5-XT-2Yc" secondAttribute="centerX" id="HOf-8r-jH6"/>
-                                                        <constraint firstItem="p0L-2r-Swc" firstAttribute="centerY" secondItem="IS5-XT-2Yc" secondAttribute="centerY" id="VIR-PN-Axk"/>
+                                                        <constraint firstAttribute="trailing" secondItem="N7d-uQ-BYk" secondAttribute="trailing" constant="20" id="Kvp-AK-p0B"/>
+                                                        <constraint firstItem="N7d-uQ-BYk" firstAttribute="centerY" secondItem="IS5-XT-2Yc" secondAttribute="centerY" id="N0z-fT-QDO"/>
+                                                        <constraint firstItem="N7d-uQ-BYk" firstAttribute="leading" secondItem="IS5-XT-2Yc" secondAttribute="leading" constant="20" id="vxo-HA-SIB"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
