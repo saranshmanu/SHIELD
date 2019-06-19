@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>962721871487-bspr8ndqaf95cdcu987v4du0u2o1282p.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.962721871487-bspr8ndqaf95cdcu987v4du0u2o1282p</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDImG8FkSRLaljQTCCVS5gs1bSANhY5ib4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>962721871487</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.skyblue.shield</string>
+	<key>PROJECT_ID</key>
+	<string>shield-d027a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>shield-d027a.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:962721871487:ios:17ad22ecd839858d</string>
+	<key>DATABASE_URL</key>
+	<string>https://shield-d027a.firebaseio.com</string>
+</dict>
+</plist>
