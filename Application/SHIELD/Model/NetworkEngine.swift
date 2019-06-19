@@ -73,6 +73,7 @@ class network:UIViewController {
             // Get user value
             if let value = snapshot.value as? NSDictionary{
                 Data.tasks.removeAll()
+                Data.taskCodes.removeAll()
                 for (key, val) in value{
                     var x = val as! NSDictionary
                     if String(describing: x["departmentCode"]!) == Data.departmentCode{

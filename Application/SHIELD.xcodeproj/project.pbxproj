@@ -148,13 +148,10 @@
 		9529AC6022BAD0D600BB0CA1 /* SHIELD */ = {
 			isa = PBXGroup;
 			children = (
-				9529AC6122BAD0D600BB0CA1 /* AppDelegate.swift */,
-				9529AC6822BAD0D800BB0CA1 /* Assets.xcassets */,
-				9529AC6D22BAD0D800BB0CA1 /* Info.plist */,
-				9529ACD222BAD26600BB0CA1 /* Storyboard */,
 				9529ACCD22BAD24100BB0CA1 /* Helpers */,
-				9529ACC022BAD1E200BB0CA1 /* ViewControllers */,
-				9529ACBF22BAD1D500BB0CA1 /* Utils */,
+				9529ACBF22BAD1D500BB0CA1 /* Model */,
+				9529ACD222BAD26600BB0CA1 /* View */,
+				9529ACC022BAD1E200BB0CA1 /* Controllers */,
 			);
 			path = SHIELD;
 			sourceTree = "<group>";
@@ -177,52 +174,55 @@
 			path = SHIELDUITests;
 			sourceTree = "<group>";
 		};
-		9529ACBF22BAD1D500BB0CA1 /* Utils */ = {
+		9529ACBF22BAD1D500BB0CA1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				9529ACBC22BAD1C700BB0CA1 /* Constants.swift */,
 				9529ACBB22BAD1C700BB0CA1 /* NetworkEngine.swift */,
 			);
-			path = Utils;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		9529ACC022BAD1E200BB0CA1 /* ViewControllers */ = {
+		9529ACC022BAD1E200BB0CA1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9529ACAC22BAD1AB00BB0CA1 /* DepartmentInformationViewController.swift */,
-				9529ACA922BAD1AB00BB0CA1 /* DepartmentViewController.swift */,
-				9529ACA822BAD1AB00BB0CA1 /* HomeTabBarController.swift */,
 				9529ACA722BAD1AB00BB0CA1 /* LoginViewController.swift */,
-				9529ACAE22BAD1AB00BB0CA1 /* MembersViewController.swift */,
-				9529ACAA22BAD1AB00BB0CA1 /* MessageCreationViewController.swift */,
-				9529ACAB22BAD1AB00BB0CA1 /* MessagesViewController.swift */,
 				9529ACAD22BAD1AB00BB0CA1 /* RegisterViewController.swift */,
+				9529ACA822BAD1AB00BB0CA1 /* HomeTabBarController.swift */,
+				9529ACAE22BAD1AB00BB0CA1 /* MembersViewController.swift */,
 				9529ACAF22BAD1AB00BB0CA1 /* TaskCreationViewController.swift */,
 				9529ACB022BAD1AB00BB0CA1 /* TaskViewController.swift */,
+				9529ACAA22BAD1AB00BB0CA1 /* MessageCreationViewController.swift */,
+				9529ACAB22BAD1AB00BB0CA1 /* MessagesViewController.swift */,
+				9529ACAC22BAD1AB00BB0CA1 /* DepartmentInformationViewController.swift */,
+				9529ACA922BAD1AB00BB0CA1 /* DepartmentViewController.swift */,
 			);
-			path = ViewControllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		9529ACCD22BAD24100BB0CA1 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				9529ACC322BAD23500BB0CA1 /* DepartmentTableViewCell.swift */,
+				9529AC6D22BAD0D800BB0CA1 /* Info.plist */,
 				9529ACC122BAD23500BB0CA1 /* GoogleService-Info.plist */,
+				9529AC6122BAD0D600BB0CA1 /* AppDelegate.swift */,
+				9529ACC322BAD23500BB0CA1 /* DepartmentTableViewCell.swift */,
 				9529ACC222BAD23500BB0CA1 /* MembersTableViewCell.swift */,
 				9529ACC422BAD23500BB0CA1 /* MessagesTableViewCell.swift */,
-				9529ACC622BAD23500BB0CA1 /* RippleEffect.swift */,
 				9529ACC522BAD23500BB0CA1 /* TaskTableViewCell.swift */,
+				9529ACC622BAD23500BB0CA1 /* RippleEffect.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		9529ACD222BAD26600BB0CA1 /* Storyboard */ = {
+		9529ACD222BAD26600BB0CA1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9529AC6822BAD0D800BB0CA1 /* Assets.xcassets */,
 				9529ACCE22BAD26000BB0CA1 /* LaunchScreen.storyboard */,
 				9529ACCF22BAD26000BB0CA1 /* Main.storyboard */,
 			);
-			path = Storyboard;
+			path = View;
 			sourceTree = "<group>";
 		};
 		9826FDB5F18C58B58E1E0742 /* Pods */ = {

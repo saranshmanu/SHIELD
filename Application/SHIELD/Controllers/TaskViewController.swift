@@ -28,7 +28,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         cell.taskDeadline.text = "Deadline: " + (Data.tasks[indexPath.row]["deadline"]! as! String)
         cell.taskObjective.text = Data.tasks[indexPath.row]["message"]! as! String
-        cell.taskGivenByName.text = Data.tasks[indexPath.row]["name"]! as! String
+        cell.taskGivenByName.text = "\(indexPath.row)"//Data.tasks[indexPath.row]["name"]! as! String
         cell.dateOfAssignedTask.text = Data.tasks[indexPath.row]["date"]! as! String
         return cell
     }
@@ -62,18 +62,5 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-//    func dropShadow() {
-//        infoView.layer.masksToBounds = false
-//        infoView.layer.shadowColor = UIColor.black.cgColor
-//        infoView.layer.shadowOpacity = 0.7
-//        infoView.layer.shadowOffset = CGSize(width: -1, height: 1)
-//        infoView.layer.shadowRadius = 10
-//        infoView.layer.shadowPath = UIBezierPath(rect: infoView.bounds).cgPath
-//        infoView.layer.shouldRasterize = true
-//        infoView.layer.rasterizationScale = UIScreen.main.scale
-//    }
-
 }

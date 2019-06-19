@@ -32,30 +32,34 @@ class TaskCreationViewController: FormViewController {
                     alert(title: "Oops!", message: "Please enter the message!")
                     return
                 }
-                var department = "Startups"
+                
+                let date = form.allRows[1].baseValue as! Date
+                let time = form.allRows[2].baseValue as! Date
+                var calendar = Calendar.current
+                var deadline = String(calendar.component(.day, from: date)) + " " + Data.findMonth(month: String(calendar.component(.month, from: date))) + " " + String(calendar.component(.year, from: date)) + ", " + String(calendar.component(.hour, from: time)) + ":" + String(calendar.component(.minute, from: time)) + ":" + String(calendar.component(.second, from: time))
+                
+                var department = ""
                 //to get the current date and time
                 for i in 3...(12-1){
+                    print(i)
                     if form.allRows[i].baseValue != nil{
-//                        department = form.allRows[i].baseValue! as! String
+                        department = form.allRows[i].baseValue! as! String
                     }
                 }
-                if department == ""{
+                
+                if department == "" {
                     //perform an alert that the department is not selected
                     UIViewController.removeSpinner(spinner: sv)
                     alert(title: "Oops!", message: "Please select a department to which you want to assign this task!")
                     return
                 }
-                let date = form.allRows[1].baseValue as! Date
-                let time = form.allRows[2].baseValue as! Date
+                
                 if date == nil || time == nil{
                     UIViewController.removeSpinner(spinner: sv)
                     alert(title: "Oops!", message: "Please select a deadline to finish this task!")
                     return
                 }
-                var calendar = Calendar.current
-                var deadline = String(calendar.component(.day, from: date)) + " " + Data.findMonth(month: String(calendar.component(.month, from: date))) + " " + String(calendar.component(.year, from: date)) + ", " + String(calendar.component(.hour, from: time)) + ":" + String(calendar.component(.minute, from: time)) + ":" + String(calendar.component(.second, from: time))
                 
-                print()
                 var task = [
                     "departmentCode": Data.findDepartmentCode(code: department),
                     "registrationNumber":Data.registrationNumber,
@@ -67,6 +71,7 @@ class TaskCreationViewController: FormViewController {
                     "name" :Data.name,
                     "designation":Data.designation
                     ] as [String : Any]
+                
                 Database.database().reference().child("task").childByAutoId().setValue(task){
                     (err, resp) in
                     if err == nil{
@@ -77,7 +82,7 @@ class TaskCreationViewController: FormViewController {
                         self.alert(title: "Oops!", message: "Posting not successfull")
                     }
                 }
-            }else{
+            } else {
                 // not connected to the internet
                 UIViewController.removeSpinner(spinner: sv)
                 self.alert(title: "Oops!", message: "You are not connected to the internet!")
@@ -122,17 +127,6 @@ class TaskCreationViewController: FormViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
