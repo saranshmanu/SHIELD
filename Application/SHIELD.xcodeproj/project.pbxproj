@@ -148,10 +148,11 @@
 		9529AC6022BAD0D600BB0CA1 /* SHIELD */ = {
 			isa = PBXGroup;
 			children = (
-				9529ACCD22BAD24100BB0CA1 /* Helpers */,
+				9529AC6D22BAD0D800BB0CA1 /* Info.plist */,
 				9529ACBF22BAD1D500BB0CA1 /* Model */,
 				9529ACD222BAD26600BB0CA1 /* View */,
 				9529ACC022BAD1E200BB0CA1 /* Controllers */,
+				9529ACCD22BAD24100BB0CA1 /* Helpers */,
 			);
 			path = SHIELD;
 			sourceTree = "<group>";
@@ -203,7 +204,6 @@
 		9529ACCD22BAD24100BB0CA1 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				9529AC6D22BAD0D800BB0CA1 /* Info.plist */,
 				9529ACC122BAD23500BB0CA1 /* GoogleService-Info.plist */,
 				9529AC6122BAD0D600BB0CA1 /* AppDelegate.swift */,
 				9529ACC322BAD23500BB0CA1 /* DepartmentTableViewCell.swift */,

@@ -110,20 +110,20 @@ class network:UIViewController {
         }
     }
     
-    public static func observeProfile(){
+    public static func observeProfile() {
         Database.database().reference().child("member").child((Auth.auth().currentUser?.uid)!).observe(.childChanged, with: {_ in
             self.fetchProfile()
         })
     }
     
     
-    public static func observeMembers(){
+    public static func observeMembers() {
         Database.database().reference().child("member").observe(.childChanged, with: {_ in
             self.fetchMembers()
         })
     }
     
-    public static func observeTasks(){
+    public static func observeTasks() {
         Database.database().reference().child("task").observe(.childAdded, with: {_ in
             self.fetchTasks()
         })

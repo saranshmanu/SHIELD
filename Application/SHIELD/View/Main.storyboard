@@ -583,7 +583,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="673"/>
                             </imageView>
                             <tableView autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8iC-oZ-lzp">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="673"/>
+                                <rect key="frame" x="0.0" y="15" width="414" height="658"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="department" rowHeight="225" id="aKj-j4-AWb" customClass="DepartmentTableViewCell" customModule="SHIELD" customModuleProvider="target">
@@ -644,7 +644,7 @@
                             <constraint firstItem="WZn-hu-3Ct" firstAttribute="top" secondItem="Far-He-Bvr" secondAttribute="bottom" id="8Ut-Ql-uKI"/>
                             <constraint firstItem="Far-He-Bvr" firstAttribute="top" secondItem="hYk-fy-Q8S" secondAttribute="bottom" id="HIN-Rh-FCi"/>
                             <constraint firstAttribute="trailing" secondItem="Far-He-Bvr" secondAttribute="trailing" id="NbL-8Z-NGo"/>
-                            <constraint firstItem="8iC-oZ-lzp" firstAttribute="top" secondItem="hYk-fy-Q8S" secondAttribute="bottom" id="ONd-8z-My3"/>
+                            <constraint firstItem="8iC-oZ-lzp" firstAttribute="top" secondItem="hYk-fy-Q8S" secondAttribute="bottom" constant="15" id="ONd-8z-My3"/>
                             <constraint firstItem="Far-He-Bvr" firstAttribute="leading" secondItem="muB-vB-Q8Q" secondAttribute="leading" id="VfB-3P-Skp"/>
                             <constraint firstAttribute="trailing" secondItem="8iC-oZ-lzp" secondAttribute="trailing" id="cfm-V7-wSR"/>
                             <constraint firstItem="WZn-hu-3Ct" firstAttribute="top" secondItem="8iC-oZ-lzp" secondAttribute="bottom" id="laX-h4-Vkg"/>

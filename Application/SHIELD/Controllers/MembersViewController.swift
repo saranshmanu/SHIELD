@@ -18,6 +18,12 @@ class MembersViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var viewCard: UIView!
     @IBOutlet weak var membersTableView: UITableView!
     
+    public func alert(title:String, message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
+    
     @IBAction func statusToggle(_ sender: Any) {
         if Data.isAvailable == true {
             Database.database().reference().child("member").child((Auth.auth().currentUser?.uid)!).child("available").setValue(0)
@@ -38,6 +44,20 @@ class MembersViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let data = Data.members[indexPath.row] as NSDictionary
+        let available = data["available"] as! Int
+        let numeber = data["phoneNumber"] as! Int
+        if available == 1 {
+            if let url = URL(string: "tel://\(numeber)"), UIApplication.shared.canOpenURL(url) {
+                if #available(iOS 10, *) {
+                    UIApplication.shared.open(url)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
+            }
+        } else {
+            alert(title: "Could not place call", message: "The member seems to be offline. Please call again later after some time")
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
