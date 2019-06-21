@@ -7,12 +7,50 @@
 //
 
 import UIKit
-import Firebase
 
-class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ProfileViewController: UIViewController {
+    
+    @IBOutlet weak var workTableView: UITableView!
+    
+    func initDataObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(viewDidAppear(_:)), name: NSNotification.Name(rawValue: "load"), object: nil)
+    }
+    
+    func createOptionMenu(index: Int) {
+        let actionSheetControllerIOS8: UIAlertController = UIAlertController(title: "Options", message: "", preferredStyle: .actionSheet)
+        let cancel   = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        let complete = UIAlertAction(title: "Completed", style: .default) { _ in
+            NetworkEngine.User.changeTaskCompletionStatus(to: true, code: Data.taskCodes[index])
+        }
+        let notCompleted = UIAlertAction(title: "Not completed", style: .default) { _ in
+            NetworkEngine.User.changeTaskCompletionStatus(to: false, code: Data.taskCodes[index])
+        }
+        actionSheetControllerIOS8.addAction(cancel)
+        actionSheetControllerIOS8.addAction(complete)
+        actionSheetControllerIOS8.addAction(notCompleted)
+        self.present(actionSheetControllerIOS8, animated: true, completion: nil)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        initTableView()
+        initDataObserver()
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         workTableView.reloadData()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+}
+
+extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func initTableView() {
+        workTableView.delegate = self
+        workTableView.dataSource = self
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -20,47 +58,23 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = workTableView.dequeueReusableCell(withIdentifier: "work", for: indexPath as IndexPath) as! ProfileTableViewCell
-        if (Data.tasks[indexPath.row]["status"]! as! Int) == 0{
-            cell.status.backgroundColor = Data.redColor
+        let task = Data.tasks[indexPath.row] as NSDictionary
+        let cell = tableView.dequeueReusableCell(withIdentifier: "work", for: indexPath as IndexPath) as! ProfileTableViewCell
+        cell.taskDeadline.text          = "Deadline: \(task["deadline"] as! String)"
+        cell.taskObjective.text         = "\(task["message"] as! String)"
+        cell.dateOfAssignedTask.text    = "\(task["date"] as! String)"
+        cell.taskGivenByName.text       = "\(indexPath.row)"
+        let status = task["status"] as! Int
+        if status == 0 {
+            cell.status.backgroundColor = Data.ThemeColor.redColor
         } else {
             cell.status.backgroundColor = UIColor.clear
         }
-        cell.taskDeadline.text = "Deadline: " + (Data.tasks[indexPath.row]["deadline"]! as! String)
-        cell.taskObjective.text = Data.tasks[indexPath.row]["message"]! as! String
-        cell.taskGivenByName.text = "\(indexPath.row)"//Data.tasks[indexPath.row]["name"]! as! String
-        cell.dateOfAssignedTask.text = Data.tasks[indexPath.row]["date"]! as! String
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        workTableView.deselectRow(at: indexPath, animated: true)
-        let actionSheetControllerIOS8: UIAlertController = UIAlertController(title: "Please select", message: "Option to select", preferredStyle: .actionSheet)
-        let complete = UIAlertAction(title: "Completed", style: .default) { _ in
-            Database.database().reference().child("task").child(Data.taskCodes[indexPath.row]).child("status").setValue(1)
-        }
-        let notCompleted = UIAlertAction(title: "Not completed", style: .default) { _ in
-            Database.database().reference().child("task").child(Data.taskCodes[indexPath.row]).child("status").setValue(0)
-        }
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
-        actionSheetControllerIOS8.addAction(cancel)
-        actionSheetControllerIOS8.addAction(complete)
-        actionSheetControllerIOS8.addAction(notCompleted)
-        self.present(actionSheetControllerIOS8, animated: true, completion: nil)
-    }
-    
-    @IBOutlet weak var workTableView: UITableView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(viewDidAppear(_:)), name: NSNotification.Name(rawValue: "load"), object: nil)
-        UIApplication.shared.statusBarStyle = .lightContent
-        navigationController?.navigationBar.tintColor = .white
-        workTableView.delegate = self
-        workTableView.dataSource = self
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        tableView.deselectRow(at: indexPath, animated: true)
+        createOptionMenu(index: indexPath.row)
     }
 }

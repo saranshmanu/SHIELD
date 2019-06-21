@@ -8,79 +8,10 @@
 
 import UIKit
 import Eureka
-import Firebase
 
 class RegisterViewController: FormViewController {
-
-    public func alert(title:String, message:String){
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        self.present(alert, animated: true)
-    }
     
-    @IBAction func registerAction(_ sender: Any) {
-        let sv = UIViewController.displaySpinner(onView: self.view)
-        if Reachability.isConnectedToNetwork(){
-            // connected to the internet
-            if form.allRows[0].baseValue != nil || form.allRows[1].baseValue != nil || form.allRows[2].baseValue != nil || form.allRows[3].baseValue != nil || form.allRows[4].baseValue != nil{
-            } else {
-                //perform an alert that the message field is empty
-                UIViewController.removeSpinner(spinner: sv)
-                alert(title: "Oops!", message: "Please enter all the following fields")
-                return
-            }
-            var department = ""
-            for i in 5...(14-1){
-                if form.allRows[i].baseValue != nil{
-                    department = form.allRows[i].baseValue! as! String
-                }
-            }
-            if department == ""{
-                // perform an alert that the department is not selected
-                UIViewController.removeSpinner(spinner: sv)
-                alert(title: "Oops!", message: "Please select a department to which you belong!")
-                return
-            }
-            Auth.auth().createUser(withEmail: form.allRows[3].baseValue! as! String, password: form.allRows[4].baseValue! as! String) { (user, error) in
-                if error == nil {
-                    var register = [
-                        "name": self.form.allRows[0].baseValue! as! String,
-                        "registrationNumber":self.form.allRows[1].baseValue! as! String,
-                        "phoneNumber":Int(self.form.allRows[2].baseValue! as! String),
-                        "email":self.form.allRows[3].baseValue! as! String,
-                        "department":Data.findDepartmentCode(code: department),
-                        "isAdmin":0,
-                        "available":1,
-                        "designation":"Core Commitee Member"
-                        ] as [String : Any]
-                    Database.database().reference().child("member").child((Auth.auth().currentUser?.uid)!).setValue(register){
-                        (err, resp) in
-                        if err == nil{
-                            UIViewController.removeSpinner(spinner: sv)
-                            self.navigationController?.popToRootViewController(animated: true)
-                        } else {
-                            UIViewController.removeSpinner(spinner: sv)
-                            self.alert(title: "Oops!", message: "Posting not successfull")
-                        }
-                    }
-                } else {
-                    //create an alert that registration was not successfull
-                    UIViewController.removeSpinner(spinner: sv)
-                    self.alert(title: "Oops!", message: "Registration not successfull")
-                }
-            }
-        }else{
-            // not connected to the internet
-            UIViewController.removeSpinner(spinner: sv)
-            alert(title: "Oops!", message: "You are not connected to the internet")
-        }
-        
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        navigationController?.navigationBar.tintColor = .white
+    func initRegistrationForm() {
         form
             +++ Section("User")
             <<< NameRow(){ row in
@@ -105,18 +36,70 @@ class RegisterViewController: FormViewController {
                 row.placeholder = "password"
             }
             +++ SelectableSection<ListCheckRow<String>>("Department", selectionType: .singleSelection(enableDeselection: true))
-            let department = Data.departments
-            for option in department {
-                form.last! <<< ListCheckRow<String>(option){ listRow in
-                    listRow.title = option
-                    listRow.selectableValue = option
-                    listRow.value = nil
-                }
+        
+        let department = Constant.departments
+        for option in department {
+            form.last! <<< ListCheckRow<String>(option){ listRow in
+                listRow.title = option
+                listRow.selectableValue = option
+                listRow.value = nil
             }
+        }
+    }
+    
+    func registerUser(name: String, registrationNumber: String, phoneNumber: Int, email: String, password: String, department: String, designation: String) {
+        let spinner = UIViewController.displaySpinner(onView: self.view)
+        NetworkEngine.Authentication.registration(name: name, registrationNumber: registrationNumber, phoneNumber: phoneNumber, email: email, password: password, department: department, designation: designation, completion: { (success) in
+            UIViewController.removeSpinner(spinner: spinner)
+            if success {
+                self.navigationController?.popToRootViewController(animated: true)
+            } else {
+                UIViewController.alert(title: "Oops!", message: "Posting not successfull", view: self)
+            }
+        })
+    }
+    
+    func cannotSend(title: String, message: String) {
+        let spinner = UIViewController.displaySpinner(onView: self.view)
+        UIViewController.removeSpinner(spinner: spinner)
+        UIViewController.alert(title: title, message: message, view: self)
+    }
+    
+    @IBAction func registerAction(_ sender: Any) {
+        if Reachability.isConnectedToNetwork() == false {
+            cannotSend(title: "Oops!", message: "You are not connected to the internet")
+            return
+        }
+        if form.allRows[0].baseValue == nil || form.allRows[1].baseValue == nil || form.allRows[2].baseValue == nil || form.allRows[3].baseValue == nil || form.allRows[4].baseValue == nil {
+            cannotSend(title: "Oops!", message: "Please enter all the following fields")
+            return
+        }
+        var department = ""
+        for i in 5...(14-1) {
+            if form.allRows[i].baseValue != nil{
+                department = form.allRows[i].baseValue! as! String
+            }
+        }
+        if department == "" {
+            cannotSend(title: "Oops!", message: "Please select a department to which you belong!")
+            return
+        }
+        registerUser(
+            name: self.form.allRows[0].baseValue! as! String,
+            registrationNumber: self.form.allRows[1].baseValue! as! String,
+            phoneNumber: Int(self.form.allRows[2].baseValue! as! String)!,
+            email: self.form.allRows[3].baseValue! as! String,
+            password: form.allRows[4].baseValue! as! String,
+            department: department,
+            designation: "Core Commitee Member")
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        initRegistrationForm()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }

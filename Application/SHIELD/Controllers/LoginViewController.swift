@@ -7,25 +7,8 @@
 //
 
 import UIKit
-import Firebase
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
-
-    public func alert(title:String, message:String){
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        self.present(alert, animated: true)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        loader.isHidden = true
-        navigationController?.navigationBar.tintColor = .white
-        usernameTextField.delegate = self
-        passwordTextField.delegate = self
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard)))
-    }
     
     @IBOutlet weak var loader: UIActivityIndicatorView!
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
@@ -33,6 +16,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
+    
+    func loginUser(username: String, password: String) {
+        initLogin(completed: false)
+        NetworkEngine.Authentication.login(username: username, password: password) { (success) in
+            self.initLogin(completed: true)
+            if success {
+                self.dismiss(animated: true, completion: nil)
+                NetworkEngine.User.loadData()
+            } else {
+                UIViewController.alert(title: "Oops!", message: "The credentials entered are invalid", view: self)
+            }
+        }
+    }
+    
+    @IBAction func loginAction(_ sender: Any) {
+        loginUser(username: usernameTextField.text!, password: passwordTextField.text!)
+    }
     
     var constant:CGFloat = 180.0
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -52,58 +52,33 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             })
         }
     }
+    
     @objc func dismissKeyboard() {
         usernameTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func start() {
-        usernameTextField.isEnabled = false
-        passwordTextField.isEnabled = false
-        loginButton.isEnabled = false
-        loader.isHidden = false
-        loader.startAnimating()
-    }
-    func stop() {
-        usernameTextField.isEnabled = true
-        passwordTextField.isEnabled = true
-        loginButton.isEnabled = true
-        loader.isHidden = true
-        loader.stopAnimating()
-    }
-    @IBAction func loginAction(_ sender: Any) {
-        start()
-        Auth.auth().signIn(withEmail: self.usernameTextField.text!, password: self.passwordTextField.text!) { (user, error) in
-            if error == nil {
-                self.stop()
-                self.dismiss(animated: true, completion: nil)
-                Data.username = self.usernameTextField.text!
-                Data.password = self.passwordTextField.text!
-                Data.uid = (Auth.auth().currentUser?.uid)!
-                Data.isLogged = true
-                network.loadData()
-            } else {
-                self.stop()
-                Data.isLogged = false
-                // put up an alert that the authentication has failed
-                self.alert(title: "Oops!", message: "The credentials entered are invalid")
-            }
+    func initLogin(completed: Bool) {
+        usernameTextField.isEnabled = completed
+        passwordTextField.isEnabled = completed
+        loginButton.isEnabled = completed
+        loader.isHidden = completed
+        if completed {
+            loader.stopAnimating()
+        } else {
+            loader.startAnimating()
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        loader.isHidden = true
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard)))
     }
-    */
-
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
 }

@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class MembersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MembersViewController: UIViewController {
 
     @IBOutlet weak var availableLabel: UILabel!
     @IBOutlet weak var registrationNumberLabel: UILabel!
@@ -18,90 +18,79 @@ class MembersViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var viewCard: UIView!
     @IBOutlet weak var membersTableView: UITableView!
     
-    public func alert(title:String, message:String){
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        self.present(alert, animated: true)
+    @IBAction func statusToggle(_ sender: Any) {
+        guard let status  = Data.User.isAvailable else { return }
+        NetworkEngine.User.changeMemberOnlineStatus(to: status)
+        availableLabel.isHidden = !status
     }
     
-    @IBAction func statusToggle(_ sender: Any) {
-        if Data.isAvailable == true {
-            Database.database().reference().child("member").child((Auth.auth().currentUser?.uid)!).child("available").setValue(0)
-            availableLabel.isHidden = true
-        } else {
-            Database.database().reference().child("member").child((Auth.auth().currentUser?.uid)!).child("available").setValue(1)
-            availableLabel.isHidden = false
+    func contactToNumber(at: Int) {
+        if let url = URL(string: "tel://\(at)"), UIApplication.shared.canOpenURL(url) {
+            if #available(iOS 10, *) {
+                UIApplication.shared.open(url)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        membersTableView.reloadData()
+        nameLabel.text = Data.User.name
+        departmentLabel.text = Constant.findDepartmentName(departmentCode: Data.User.departmentCode) + " Department"
+        registrationNumberLabel.text = Data.User.registrationNumber
+        guard let status  = Data.User.isAvailable else { return }
+        availableLabel.isHidden = !status
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        initTableView()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+}
+
+extension MembersViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func initTableView() {
+        membersTableView.delegate = self
+        membersTableView.dataSource = self
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Data.members.count
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let data = Data.members[indexPath.row] as NSDictionary
-        let available = data["available"] as! Int
-        let numeber = data["phoneNumber"] as! Int
+        let member = Data.members[indexPath.row] as NSDictionary
+        let available = member["available"] as! Int
         if available == 1 {
-            if let url = URL(string: "tel://\(numeber)"), UIApplication.shared.canOpenURL(url) {
-                if #available(iOS 10, *) {
-                    UIApplication.shared.open(url)
-                } else {
-                    UIApplication.shared.openURL(url)
-                }
-            }
+            let number = member["phoneNumber"] as! Int
+            contactToNumber(at: number)
         } else {
-            alert(title: "Could not place call", message: "The member seems to be offline. Please call again later after some time")
+            UIViewController.alert(title: "Could not place call", message: "The member seems to be offline. Please call again later after some time", view: self)
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = membersTableView.dequeueReusableCell(withIdentifier: "members", for: indexPath as IndexPath) as! MembersTableViewCell
-        if Data.members[indexPath.row]["available"] as! Int == 0{
+        let member = Data.members[indexPath.row] as NSDictionary
+        let cell = tableView.dequeueReusableCell(withIdentifier: "members", for: indexPath as IndexPath) as! MembersTableViewCell
+        cell.registrationNumber.text    = member["registrationNumber"] as? String
+        cell.name.text                  = member["name"] as? String
+        let available = member["available"] as! Int
+        if available == 0{
             cell.status.backgroundColor = UIColor.clear
         } else {
-            cell.status.backgroundColor = Data.redColor
+            cell.status.backgroundColor = Data.ThemeColor.redColor
         }
-        cell.name.text = Data.members[indexPath.row]["name"] as! String
-        cell.registrationNumber.text = Data.members[indexPath.row]["registrationNumber"] as! String
         return cell
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        membersTableView.reloadData()
-        nameLabel.text = Data.name
-        departmentLabel.text = Data.findDepartmentName(departmentCode: Data.departmentCode) + " Department"
-        registrationNumberLabel.text = Data.registrationNumber
-        if Data.isAvailable == true {
-            availableLabel.isHidden = false
-        } else {
-            availableLabel.isHidden = true
-        }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        UIApplication.shared.statusBarStyle = .lightContent
-        membersTableView.delegate = self
-        membersTableView.dataSource = self
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
     }
 }
-
-//        @IBOutlet weak var animation: UIView!
-//        let animationView = LOTAnimationView(name: "data")
-//        animationView?.frame = CGRect(x: -65, y: -77, width: 200, height: 200)
-////        animationView?.center = self.animation.center
-//        animationView?.contentMode = .scaleAspectFill
-//        animationView?.loopAnimation = true
-//        animation.addSubview(animationView!)
-//        animationView?.play()

@@ -1,19 +1,20 @@
-
 //
-//  departmentMessagesTableViewCell.swift
+//  ProfileTableViewCell.swift
 //  SHIELD
 //
-//  Created by Saransh Mittal on 12/01/18.
+//  Created by Saransh Mittal on 08/01/18.
 //  Copyright © 2018 Saransh Mittal. All rights reserved.
 //
 
 import UIKit
 
-class departmentMessagesTableViewCell: UITableViewCell {
+class ProfileTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var messageSentByField: UILabel!
-    @IBOutlet weak var messageTextField: UILabel!
-    @IBOutlet weak var dateAndTime: UILabel!
+    @IBOutlet weak var taskDeadline: UILabel!
+    @IBOutlet weak var taskObjective: UILabel!
+    @IBOutlet weak var dateOfAssignedTask: UILabel!
+    @IBOutlet weak var taskGivenByName: UILabel!
+    @IBOutlet weak var status: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,7 +23,6 @@ class departmentMessagesTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
 
