@@ -90,6 +90,7 @@ class TaskCreationViewController: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initTaskCreationForm()
     }
 
     override func didReceiveMemoryWarning() {
